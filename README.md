@@ -2,11 +2,11 @@
 UoA Game Developer Guild - Sem2 Jam
 
 ## Team Members
-- Angel (@anqilique)
-- Finn
-- Amelie
-- Noa
-- Amy
+- Noa (Game Lead)
+- Angel (@anqilique, Programmer)
+- Finn (@F1nn1125, Programmer + Audio)
+- Amelie (Music)
+- Amy (@Gladefield)
 
 
 ## Theme: Pass the Torch
