@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqkgvlxexdkvs"]
+
+[ext_resource type="Script" uid="uid://c8mrrp0yjara" path="res://Scripts/fire_cat_movement.gd" id="1_l7j73"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jjgbg"]
+
+[node name="fire_cat" type="Node"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+process_mode = 3
+script = ExtResource("1_l7j73")
+movement_speed = 7.03
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = SubResource("PlaceholderTexture2D_jjgbg")

@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdk4cbpxqy2j5"]
+[gd_scene load_steps=4 format=3 uid="uid://cdk4cbpxqy2j5"]
 
 [ext_resource type="Script" uid="uid://bcrdf5jxhxnun" path="res://Scripts/main.gd" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://cqkgvlxexdkvs" path="res://Scenes/fire_cat.tscn" id="2_bo1nx"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bo1nx"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_jjgbg")
+
+[node name="fire_cat" parent="." instance=ExtResource("2_bo1nx")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, 0)
+texture = SubResource("PlaceholderTexture2D_bo1nx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
