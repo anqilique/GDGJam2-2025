@@ -1,15 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqkgvlxexdkvs"]
+[gd_scene load_steps=5 format=3 uid="uid://r7jxd36vluqq"]
 
-[ext_resource type="Script" uid="uid://c8mrrp0yjara" path="res://Scripts/fire_cat_movement.gd" id="1_l7j73"]
+[ext_resource type="Script" uid="uid://c8mrrp0yjara" path="res://Scripts/FireCatMovement.gd" id="1_l7j73"]
+[ext_resource type="Script" uid="uid://cij8knnrlib55" path="res://Scripts/StateMachine.gd" id="2_npn7s"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jjgbg"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8gbba"]
+size = Vector2(10, 10)
 
-[node name="fire_cat" type="Node"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_npn7s"]
+radius = 5.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="FireCat" type="CharacterBody2D"]
 process_mode = 3
 script = ExtResource("1_l7j73")
 movement_speed = 7.03
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = SubResource("PlaceholderTexture2D_jjgbg")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_8gbba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_npn7s")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_npn7s")
