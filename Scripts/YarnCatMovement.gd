@@ -6,13 +6,13 @@ var target_velocity := Vector2.ZERO
 func _physics_process(_delta):
 	var direction = Vector2.ZERO
 
-	if (Input.is_action_pressed("fire_cat_move_up")):
+	if (Input.is_action_pressed("yarn_cat_move_up")):
 		direction.y += -1
-	if (Input.is_action_pressed("fire_cat_move_down")):
+	if (Input.is_action_pressed("yarn_cat_move_down")):
 		direction.y -= -1
-	if (Input.is_action_pressed("fire_cat_move_left")):
+	if (Input.is_action_pressed("yarn_cat_move_left")):
 		direction.x -= 1
-	if (Input.is_action_pressed("fire_cat_move_right")):
+	if (Input.is_action_pressed("yarn_cat_move_right")):
 		direction.x += 1
 
 	target_velocity.x = direction.x * movement_speed

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://2t5bc1akjdes"]
+
+[ext_resource type="Script" uid="uid://ymhfxshwidbw" path="res://Scripts/YarnCatMovement.gd" id="1_h6rup"]
+[ext_resource type="Script" uid="uid://cij8knnrlib55" path="res://Scripts/StateMachine.gd" id="2_hfd8b"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8gbba"]
+size = Vector2(10, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_npn7s"]
+radius = 5.0
+
+[node name="YarnCat" type="CharacterBody2D"]
+process_mode = 3
+script = ExtResource("1_h6rup")
+movement_speed = 7.03
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_8gbba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_npn7s")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_hfd8b")
