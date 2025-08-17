@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://r7jxd36vluqq"]
+[gd_scene load_steps=7 format=3 uid="uid://r7jxd36vluqq"]
 
-[ext_resource type="Script" uid="uid://c8mrrp0yjara" path="res://Scripts/FireCatMovement.gd" id="1_l7j73"]
-[ext_resource type="Script" uid="uid://cij8knnrlib55" path="res://Scripts/StateMachine.gd" id="2_npn7s"]
+[ext_resource type="Script" uid="uid://c8mrrp0yjara" path="res://Scripts/FireCat/FireCat.gd" id="1_l7j73"]
+[ext_resource type="Script" uid="uid://cjson8dx74ue8" path="res://Scripts/Components/StateMachine.gd" id="2_npn7s"]
+[ext_resource type="Script" uid="uid://4n0vsokd7a1h" path="res://Scripts/FireCat/States/FCatMove.gd" id="3_5n1l1"]
+[ext_resource type="Script" uid="uid://dmayw70bw8ny8" path="res://Scripts/FireCat/States/FCatIdle.gd" id="4_d1awe"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8gbba"]
 size = Vector2(10, 10)
@@ -9,10 +11,9 @@ size = Vector2(10, 10)
 [sub_resource type="CircleShape2D" id="CircleShape2D_npn7s"]
 radius = 5.0
 
-[node name="FireCat" type="CharacterBody2D" groups=["Player"]]
+[node name="FireCat" type="CharacterBody2D" groups=["FireCat", "Player"]]
 process_mode = 3
 script = ExtResource("1_l7j73")
-movement_speed = 7.03
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("PlaceholderTexture2D_8gbba")
@@ -20,5 +21,16 @@ texture = SubResource("PlaceholderTexture2D_8gbba")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_npn7s")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_npn7s")
+initial_state = NodePath("FCatIdle")
+
+[node name="FCatIdle" type="Node" parent="StateMachine"]
+script = ExtResource("4_d1awe")
+metadata/_custom_type_script = "uid://dmayw70bw8ny8"
+
+[node name="FCatMove" type="Node" parent="StateMachine"]
+script = ExtResource("3_5n1l1")
+movement_speed = 10.0
+speed_multiplier = 50.0
+metadata/_custom_type_script = "uid://4n0vsokd7a1h"

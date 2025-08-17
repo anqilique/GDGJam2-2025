@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://2t5bc1akjdes"]
+[gd_scene load_steps=8 format=3 uid="uid://2t5bc1akjdes"]
 
-[ext_resource type="Script" uid="uid://ymhfxshwidbw" path="res://Scripts/YarnCatMovement.gd" id="1_h6rup"]
-[ext_resource type="Script" uid="uid://cij8knnrlib55" path="res://Scripts/StateMachine.gd" id="2_hfd8b"]
+[ext_resource type="Script" uid="uid://ymhfxshwidbw" path="res://Scripts/YarnCat/YarnCat.gd" id="1_h6rup"]
+[ext_resource type="Script" uid="uid://cjson8dx74ue8" path="res://Scripts/Components/StateMachine.gd" id="2_hfd8b"]
+[ext_resource type="Script" uid="uid://bk5cveh720lnc" path="res://Scripts/YarnCat/States/YCatIdle.gd" id="3_308qq"]
+[ext_resource type="Script" uid="uid://cwe0d5fdy0dxd" path="res://Scripts/YarnCat/States/YCatMove.gd" id="3_gm3cx"]
 [ext_resource type="PackedScene" uid="uid://bm0xq7m4hiuve" path="res://Scenes/Torch.tscn" id="3_hfd8b"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8gbba"]
@@ -10,10 +12,9 @@ size = Vector2(10, 10)
 [sub_resource type="CircleShape2D" id="CircleShape2D_npn7s"]
 radius = 5.0
 
-[node name="YarnCat" type="CharacterBody2D" groups=["Player"]]
+[node name="YarnCat" type="CharacterBody2D" groups=["Player", "YarnCat"]]
 process_mode = 3
 script = ExtResource("1_h6rup")
-movement_speed = 7.03
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.0924, 0.60326, 0.84, 1)
@@ -22,8 +23,19 @@ texture = SubResource("PlaceholderTexture2D_8gbba")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_npn7s")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_hfd8b")
+initial_state = NodePath("YCatIdle")
+
+[node name="YCatIdle" type="Node" parent="StateMachine"]
+script = ExtResource("3_308qq")
+metadata/_custom_type_script = "uid://bk5cveh720lnc"
+
+[node name="YCatMove" type="Node" parent="StateMachine"]
+script = ExtResource("3_gm3cx")
+movement_speed = 10.0
+speed_multiplier = 50.0
+metadata/_custom_type_script = "uid://cwe0d5fdy0dxd"
 
 [node name="Torch" parent="." instance=ExtResource("3_hfd8b")]
 position = Vector2(5, -1)

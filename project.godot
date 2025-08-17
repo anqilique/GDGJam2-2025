@@ -18,6 +18,8 @@ config/icon="res://Assets/Art/icon.svg"
 [global_group]
 
 Player=""
+FireCat=""
+YarnCat=""
 
 [input]
 
