@@ -12,7 +12,7 @@ script = ExtResource("1_jjgbg")
 zoom = Vector2(10, 10)
 
 [node name="FireCat" parent="." node_paths=PackedStringArray("shadow") instance=ExtResource("2_bo1nx")]
-position = Vector2(-1, 0)
+position = Vector2(22, -6)
 movement_speed = 13.0
 shadow = NodePath("../Shadow")
 
