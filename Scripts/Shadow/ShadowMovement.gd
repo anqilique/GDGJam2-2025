@@ -33,13 +33,13 @@ func _physics_process(delta):
 
 
 func find_closest_player():
-	var closest_player = players[0]
-	var closest_distance = transform.origin.distance_to(closest_player.transform.origin)
+	var new_closest_player = players[0]
+	var closest_distance = transform.origin.distance_to(new_closest_player.transform.origin)
 
 	for player in players:
 		var distance = transform.origin.distance_to(player.transform.origin)
 		if distance < closest_distance:
-			closest_player = player
+			new_closest_player = player
 			closest_distance = distance
 
-	return closest_player.transform
+	return new_closest_player.transform
