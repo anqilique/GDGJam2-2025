@@ -10,13 +10,13 @@ func _ready():
 	closest_player = find_closest_player()
 
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	# Check for closest player every second, cuz this doesn't need to be every tick
 	if time_since_closest_player_check_seconds > 1.0:
 		closest_player = find_closest_player()
 		time_since_closest_player_check_seconds = 0
 	else:
-		time_since_closest_player_check_seconds += _delta
+		time_since_closest_player_check_seconds += delta
 
 	var angle = get_angle_to(closest_player.origin)
 
