@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cjson8dx74ue8" path="res://Scripts/Components/StateMachine.gd" id="2_hfd8b"]
 [ext_resource type="Script" uid="uid://bk5cveh720lnc" path="res://Scripts/YarnCat/States/YCatIdle.gd" id="3_308qq"]
 [ext_resource type="Script" uid="uid://cwe0d5fdy0dxd" path="res://Scripts/YarnCat/States/YCatMove.gd" id="3_gm3cx"]
-[ext_resource type="PackedScene" uid="uid://bm0xq7m4hiuve" path="res://Scenes/Torch.tscn" id="3_hfd8b"]
+[ext_resource type="PackedScene" uid="uid://bm0xq7m4hiuve" path="res://Scenes/torch.tscn" id="3_hfd8b"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8gbba"]
 size = Vector2(10, 10)
