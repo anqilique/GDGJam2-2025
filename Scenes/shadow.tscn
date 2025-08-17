@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://clawv8kask8pi"]
+[gd_scene load_steps=8 format=3 uid="uid://clawv8kask8pi"]
 
-[ext_resource type="Script" uid="uid://cf1ejqtfxgtqy" path="res://Scripts/Shadow/ShadowMovement.gd" id="1_8pobm"]
 [ext_resource type="Script" uid="uid://cjson8dx74ue8" path="res://Scripts/Shadow/ShadowStateMachine.gd" id="1_wjdoq"]
+[ext_resource type="Script" uid="uid://dwo0vqhswfwnq" path="res://Scripts/Shadow/ShadowHealth.gd" id="2_rxdv1"]
+[ext_resource type="Script" uid="uid://c0rmkgfdvs7y5" path="res://Scripts/Shadow/States/ShadowMove.gd" id="4_bhi63"]
+[ext_resource type="Script" uid="uid://b24sa2kmvcoxp" path="res://Scripts/Shadow/States/ShadowDie.gd" id="4_xxmrs"]
+[ext_resource type="Script" uid="uid://cjee6ug4ipcnb" path="res://Scripts/Shadow/States/ShadowAttack.gd" id="5_xxmrs"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8gbba"]
 size = Vector2(10, 10)
@@ -11,14 +14,31 @@ radius = 5.0
 
 [node name="Shadow" type="CharacterBody2D"]
 process_mode = 3
-script = ExtResource("1_8pobm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.591381, 0, 0.143707, 1)
 texture = SubResource("PlaceholderTexture2D_8gbba")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="HurtBox" type="CollisionShape2D" parent="." node_paths=PackedStringArray("state_machine")]
 shape = SubResource("CircleShape2D_8pobm")
+script = ExtResource("2_rxdv1")
+max_health = 3
+state_machine = NodePath("../StateMachine")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_wjdoq")
+initial_state = NodePath("Move")
+
+[node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("shadow")]
+script = ExtResource("4_bhi63")
+shadow = NodePath("../..")
+movement_speed = 10.0
+
+[node name="ShadowDie" type="Node" parent="StateMachine" node_paths=PackedStringArray("shadow_parent_node")]
+script = ExtResource("4_xxmrs")
+shadow_parent_node = NodePath("../..")
+metadata/_custom_type_script = "uid://b24sa2kmvcoxp"
+
+[node name="ShadowAttack" type="Node" parent="StateMachine"]
+script = ExtResource("5_xxmrs")
+metadata/_custom_type_script = "uid://cjee6ug4ipcnb"
