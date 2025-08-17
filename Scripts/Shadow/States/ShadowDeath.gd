@@ -1,5 +1,5 @@
 extends State
-class_name ShadowDie
+class_name ShadowDeath
 
 @export var shadow_parent_node: Node2D
 
