@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://clawv8kask8pi"]
+[gd_scene load_steps=7 format=3 uid="uid://clawv8kask8pi"]
 
 [ext_resource type="Script" uid="uid://cjson8dx74ue8" path="res://Scripts/Components/StateMachine.gd" id="1_wjdoq"]
 [ext_resource type="Script" uid="uid://c0rmkgfdvs7y5" path="res://Scripts/Shadow/States/ShadowMove.gd" id="4_bhi63"]
 [ext_resource type="Script" uid="uid://b24sa2kmvcoxp" path="res://Scripts/Shadow/States/ShadowDie.gd" id="4_xxmrs"]
+[ext_resource type="Script" uid="uid://cjee6ug4ipcnb" path="res://Scripts/Shadow/States/ShadowAttack.gd" id="5_xxmrs"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8gbba"]
 size = Vector2(10, 10)
@@ -33,3 +34,7 @@ metadata/_custom_type_script = "uid://c0rmkgfdvs7y5"
 [node name="ShadowDie" type="Node" parent="StateMachine"]
 script = ExtResource("4_xxmrs")
 metadata/_custom_type_script = "uid://b24sa2kmvcoxp"
+
+[node name="ShadowAttack" type="Node" parent="StateMachine"]
+script = ExtResource("5_xxmrs")
+metadata/_custom_type_script = "uid://cjee6ug4ipcnb"
