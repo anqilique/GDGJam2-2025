@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var movement_speed: float
+@export var shadow: ShadowHealth
 var target_velocity := Vector2.ZERO
 
 func _physics_process(_delta):

@@ -11,9 +11,10 @@ script = ExtResource("1_jjgbg")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(10, 10)
 
-[node name="FireCat" parent="." instance=ExtResource("2_bo1nx")]
+[node name="FireCat" parent="." node_paths=PackedStringArray("shadow") instance=ExtResource("2_bo1nx")]
 position = Vector2(-1, 0)
 movement_speed = 13.0
+shadow = NodePath("../Shadow")
 
 [node name="YarnCat" parent="." instance=ExtResource("3_8gbba")]
 position = Vector2(23, 12)
@@ -21,4 +22,3 @@ movement_speed = 13.0
 
 [node name="Shadow" parent="." instance=ExtResource("4_jjvhh")]
 position = Vector2(-22, -1)
-movement_speed = 10.0
