@@ -6,7 +6,6 @@ class_name ShadowMove
 
 var players
 var closest_player: Transform2D
-var time_since_closest_player_check_seconds: float
 
 func Enter():
 	players = get_tree().get_nodes_in_group("Player")
@@ -14,12 +13,7 @@ func Enter():
 
 
 func Physics_Update(delta):
-	# Check for closest player every second, cuz this doesn't need to be every tick
-	if time_since_closest_player_check_seconds > 1.0:
-		closest_player = find_closest_player()
-		time_since_closest_player_check_seconds = 0
-	else:
-		time_since_closest_player_check_seconds += delta
+	closest_player = find_closest_player()
 
 	var angle = shadow.get_angle_to(closest_player.origin)
 
