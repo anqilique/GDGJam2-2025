@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdk4cbpxqy2j5"]
+[gd_scene load_steps=5 format=3 uid="uid://cdk4cbpxqy2j5"]
 
 [ext_resource type="Script" uid="uid://bcrdf5jxhxnun" path="res://Scripts/main.gd" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://r7jxd36vluqq" path="res://Scenes/fire_cat.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://2t5bc1akjdes" path="res://Scenes/yarn_cat.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://clawv8kask8pi" path="res://Scenes/shadow.tscn" id="4_jjvhh"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_jjgbg")
@@ -12,6 +13,12 @@ zoom = Vector2(10, 10)
 
 [node name="FireCat" parent="." instance=ExtResource("2_bo1nx")]
 position = Vector2(-1, 0)
+movement_speed = 13.0
 
 [node name="YarnCat" parent="." instance=ExtResource("3_8gbba")]
 position = Vector2(23, 12)
+movement_speed = 13.0
+
+[node name="Shadow" parent="." instance=ExtResource("4_jjvhh")]
+position = Vector2(-22, -1)
+movement_speed = 10.0

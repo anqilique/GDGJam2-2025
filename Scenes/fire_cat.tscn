@@ -9,7 +9,7 @@ size = Vector2(10, 10)
 [sub_resource type="CircleShape2D" id="CircleShape2D_npn7s"]
 radius = 5.0
 
-[node name="FireCat" type="CharacterBody2D"]
+[node name="FireCat" type="CharacterBody2D" groups=["Player"]]
 process_mode = 3
 script = ExtResource("1_l7j73")
 movement_speed = 7.03

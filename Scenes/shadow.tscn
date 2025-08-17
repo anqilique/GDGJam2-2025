@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://clawv8kask8pi"]
+
+[ext_resource type="Script" uid="uid://cf1ejqtfxgtqy" path="res://Scripts/Shadow/ShadowMovement.gd" id="1_8pobm"]
+[ext_resource type="Script" uid="uid://cjson8dx74ue8" path="res://Scripts/Shadow/ShadowStateMachine.gd" id="1_wjdoq"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8gbba"]
+size = Vector2(10, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8pobm"]
+radius = 5.0
+
+[node name="Shadow" type="CharacterBody2D"]
+process_mode = 3
+script = ExtResource("1_8pobm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.591381, 0, 0.143707, 1)
+texture = SubResource("PlaceholderTexture2D_8gbba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8pobm")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("1_wjdoq")

@@ -15,6 +15,10 @@ run/main_scene="uid://cdk4cbpxqy2j5"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Assets/Art/icon.svg"
 
+[global_group]
+
+Player=""
+
 [input]
 
 fire_cat_move_up={
