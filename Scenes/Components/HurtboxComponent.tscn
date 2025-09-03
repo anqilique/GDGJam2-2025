@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://4j24cfujirgk"]
+
+[ext_resource type="Script" uid="uid://c0ak6esq72kpf" path="res://Scripts/Components/HurtboxComponent.gd" id="1_kbt3e"]
+
+[node name="HurtboxComponent" type="Area2D"]
+script = ExtResource("1_kbt3e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

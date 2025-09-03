@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://r7jxd36vluqq"]
+[gd_scene load_steps=12 format=3 uid="uid://r7jxd36vluqq"]
 
 [ext_resource type="Script" uid="uid://c8mrrp0yjara" path="res://Scripts/FireCat/FireCat.gd" id="1_l7j73"]
 [ext_resource type="Script" uid="uid://cjson8dx74ue8" path="res://Scripts/Components/StateMachine.gd" id="2_npn7s"]
+[ext_resource type="PackedScene" uid="uid://r01f1wrgnauk" path="res://Scenes/Components/HealthComponent.tscn" id="2_vee4i"]
 [ext_resource type="Script" uid="uid://4n0vsokd7a1h" path="res://Scripts/FireCat/States/FCatMove.gd" id="3_5n1l1"]
+[ext_resource type="PackedScene" uid="uid://4j24cfujirgk" path="res://Scenes/Components/HurtboxComponent.tscn" id="3_esvvl"]
 [ext_resource type="Script" uid="uid://dmayw70bw8ny8" path="res://Scripts/FireCat/States/FCatIdle.gd" id="4_d1awe"]
 [ext_resource type="Script" uid="uid://da353sbg6mp5a" path="res://Scripts/FireCat/States/FCatDeath.gd" id="5_4fkeu"]
 [ext_resource type="Script" uid="uid://b77q21jp2dn0r" path="res://Scripts/FireCat/States/FCatHit.gd" id="6_05lf0"]
@@ -13,6 +15,10 @@ size = Vector2(10, 10)
 [sub_resource type="CircleShape2D" id="CircleShape2D_npn7s"]
 radius = 5.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vee4i"]
+radius = 5.0
+height = 10.0
+
 [node name="FireCat" type="CharacterBody2D" groups=["FireCat", "Player"]]
 process_mode = 3
 script = ExtResource("1_l7j73")
@@ -20,8 +26,18 @@ script = ExtResource("1_l7j73")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("PlaceholderTexture2D_8gbba")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="BodyCollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_npn7s")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_vee4i")]
+health = 10
+max_health = 10
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_esvvl")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("CapsuleShape2D_vee4i")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_npn7s")

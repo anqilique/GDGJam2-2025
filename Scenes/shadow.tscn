@@ -1,6 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://clawv8kask8pi"]
+[gd_scene load_steps=11 format=3 uid="uid://clawv8kask8pi"]
 
+[ext_resource type="PackedScene" uid="uid://r01f1wrgnauk" path="res://Scenes/Components/HealthComponent.tscn" id="1_7lfe7"]
 [ext_resource type="Script" uid="uid://cjson8dx74ue8" path="res://Scripts/Components/StateMachine.gd" id="1_wjdoq"]
+[ext_resource type="PackedScene" uid="uid://4j24cfujirgk" path="res://Scenes/Components/HurtboxComponent.tscn" id="2_pt8rj"]
 [ext_resource type="Script" uid="uid://dqp2wtkte5hth" path="res://Scripts/Shadow/States/FCatHit.gd" id="3_xxmrs"]
 [ext_resource type="Script" uid="uid://c0rmkgfdvs7y5" path="res://Scripts/Shadow/States/ShadowMove.gd" id="4_bhi63"]
 [ext_resource type="Script" uid="uid://b24sa2kmvcoxp" path="res://Scripts/Shadow/States/ShadowDeath.gd" id="4_xxmrs"]
@@ -12,6 +14,10 @@ size = Vector2(10, 10)
 [sub_resource type="CircleShape2D" id="CircleShape2D_8pobm"]
 radius = 5.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s1j64"]
+radius = 5.0
+height = 10.0
+
 [node name="Shadow" type="CharacterBody2D" groups=["Shadow"]]
 process_mode = 3
 
@@ -21,6 +27,16 @@ texture = SubResource("PlaceholderTexture2D_8gbba")
 
 [node name="HurtBox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_8pobm")
+
+[node name="HealthComponent" parent="." instance=ExtResource("1_7lfe7")]
+health = 10
+max_health = 10
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("2_pt8rj")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("CapsuleShape2D_s1j64")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_wjdoq")
