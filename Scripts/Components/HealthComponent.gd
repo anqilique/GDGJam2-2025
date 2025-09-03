@@ -39,9 +39,11 @@ func damage(attack: Attack):
 		# Get the death state of the parent node.
 		match get_parent().get_groups()[0]:
 			"FireCat":
-				death_state = "deathstatehere"
+				death_state = "FCatDeath"
 			"YarnCat":
-				death_state = "deathstatehere"
+				death_state = "YCatDeath"
+			"Shadow":
+				death_state = "ShadowDeath"
 		
 		# If parent node has a death state, switch to the state.
 		if death_state != "" and state_machine.has_node(death_state):
@@ -53,9 +55,11 @@ func damage(attack: Attack):
 		# Get the hit state of the parent node.
 		match get_parent().get_groups()[0]:
 			"FireCat":
-				hit_state = "hitstatehere"
+				hit_state = "FCatHit"
 			"YarnCat":
-				hit_state = "hitstatehere"
+				hit_state = "YCatHit"
+			"Shadow":
+				hit_state = "ShadowHit"
 		
 		# If a hit state exists, switch to it.
 		if hit_state != "" and state_machine.has_node(hit_state):

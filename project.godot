@@ -20,6 +20,7 @@ config/icon="res://Assets/Art/icon.svg"
 Player=""
 FireCat=""
 YarnCat=""
+Shadow=""
 
 [input]
 

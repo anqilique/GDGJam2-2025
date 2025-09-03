@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://2t5bc1akjdes"]
+[gd_scene load_steps=10 format=3 uid="uid://2t5bc1akjdes"]
 
 [ext_resource type="Script" uid="uid://ymhfxshwidbw" path="res://Scripts/YarnCat/YarnCat.gd" id="1_h6rup"]
 [ext_resource type="Script" uid="uid://cjson8dx74ue8" path="res://Scripts/Components/StateMachine.gd" id="2_hfd8b"]
 [ext_resource type="Script" uid="uid://bk5cveh720lnc" path="res://Scripts/YarnCat/States/YCatIdle.gd" id="3_308qq"]
 [ext_resource type="Script" uid="uid://cwe0d5fdy0dxd" path="res://Scripts/YarnCat/States/YCatMove.gd" id="3_gm3cx"]
 [ext_resource type="PackedScene" uid="uid://bm0xq7m4hiuve" path="res://Scenes/torch.tscn" id="3_hfd8b"]
+[ext_resource type="Script" uid="uid://d2wxvba0tns6f" path="res://Scripts/YarnCat/States/YCatDeath.gd" id="5_63v1j"]
+[ext_resource type="Script" uid="uid://cr0mp0gn4lrw" path="res://Scripts/YarnCat/States/YCatHit.gd" id="6_jrn06"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8gbba"]
 size = Vector2(10, 10)
@@ -36,6 +38,14 @@ script = ExtResource("3_gm3cx")
 movement_speed = 10.0
 speed_multiplier = 50.0
 metadata/_custom_type_script = "uid://cwe0d5fdy0dxd"
+
+[node name="YCatDeath" type="Node" parent="StateMachine"]
+script = ExtResource("5_63v1j")
+metadata/_custom_type_script = "uid://d2wxvba0tns6f"
+
+[node name="YCatHit" type="Node" parent="StateMachine"]
+script = ExtResource("6_jrn06")
+metadata/_custom_type_script = "uid://cr0mp0gn4lrw"
 
 [node name="Torch" parent="." instance=ExtResource("3_hfd8b")]
 position = Vector2(5, -1)

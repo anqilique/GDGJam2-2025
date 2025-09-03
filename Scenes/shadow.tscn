@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://clawv8kask8pi"]
+[gd_scene load_steps=8 format=3 uid="uid://clawv8kask8pi"]
 
 [ext_resource type="Script" uid="uid://cjson8dx74ue8" path="res://Scripts/Components/StateMachine.gd" id="1_wjdoq"]
+[ext_resource type="Script" uid="uid://dqp2wtkte5hth" path="res://Scripts/Shadow/States/FCatHit.gd" id="3_xxmrs"]
 [ext_resource type="Script" uid="uid://c0rmkgfdvs7y5" path="res://Scripts/Shadow/States/ShadowMove.gd" id="4_bhi63"]
 [ext_resource type="Script" uid="uid://b24sa2kmvcoxp" path="res://Scripts/Shadow/States/ShadowDeath.gd" id="4_xxmrs"]
 [ext_resource type="Script" uid="uid://cjee6ug4ipcnb" path="res://Scripts/Shadow/States/ShadowAttack.gd" id="5_xxmrs"]
@@ -11,7 +12,7 @@ size = Vector2(10, 10)
 [sub_resource type="CircleShape2D" id="CircleShape2D_8pobm"]
 radius = 5.0
 
-[node name="Shadow" type="CharacterBody2D"]
+[node name="Shadow" type="CharacterBody2D" groups=["Shadow"]]
 process_mode = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -30,6 +31,10 @@ script = ExtResource("4_bhi63")
 shadow = NodePath("../..")
 movement_speed = 10.0
 metadata/_custom_type_script = "uid://c0rmkgfdvs7y5"
+
+[node name="ShadowHit" type="Node" parent="StateMachine"]
+script = ExtResource("3_xxmrs")
+metadata/_custom_type_script = "uid://dqp2wtkte5hth"
 
 [node name="ShadowDeath" type="Node" parent="StateMachine"]
 script = ExtResource("4_xxmrs")
