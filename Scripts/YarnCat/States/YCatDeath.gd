@@ -4,8 +4,8 @@ class_name YCatDeath
 var cat
 
 func enter():
-	print("YarnCat ---> Entered YCatDeath State")
 	cat = get_tree().get_first_node_in_group("YarnCat")
+	print("yarn cat dieded :(")
 
 func exit():
 	pass

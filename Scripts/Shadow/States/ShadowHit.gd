@@ -1,9 +1,8 @@
 extends State
 class_name ShadowHit 
 
-
 func enter():
-	print("Shadow ---> Entered ShadowHit State")
+	pass
 
 func exit():
 	pass

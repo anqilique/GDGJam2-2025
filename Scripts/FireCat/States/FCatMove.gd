@@ -7,7 +7,6 @@ class_name FCatMove
 var cat
 
 func enter():
-	print("FireCat ---> Entered FCatMove State")
 	cat = get_tree().get_first_node_in_group("FireCat")
 
 func exit():

@@ -19,7 +19,7 @@ radius = 5.0
 radius = 5.0
 height = 10.0
 
-[node name="FireCat" type="CharacterBody2D" groups=["FireCat", "Player"]]
+[node name="FireCat" type="CharacterBody2D" groups=["FireCat"]]
 process_mode = 3
 script = ExtResource("1_l7j73")
 
@@ -30,11 +30,9 @@ texture = SubResource("PlaceholderTexture2D_8gbba")
 shape = SubResource("CircleShape2D_npn7s")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_vee4i")]
-health = 10
 max_health = 10
 
-[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_esvvl")]
-health_component = NodePath("../HealthComponent")
+[node name="HurtboxComponent" parent="." instance=ExtResource("3_esvvl")]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtboxComponent"]
 shape = SubResource("CapsuleShape2D_vee4i")

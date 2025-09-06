@@ -1,57 +1,61 @@
 extends Node
 class_name HealthComponent
 
-@export var health : int
+@export var current_health : int
 @export var max_health : int
 
+var state_machine
 
-func _process(delta: float) -> void:
-	"""Example code of keeping health updated."""
-	if get_parent().get_groups()[0] == "Player":
-		#if Globals.player_health != health:
-			#Globals.player_health = health
-		pass
-
-func heal():
-	health += 1
-	emit_signal("health_changed", health)
+func _ready():
+	state_machine = get_parent().get_node("StateMachine")
+	current_health = max_health
 
 
-func damage(attack: Attack):
-	# Get the state machine of the parent node.
-	var state_machine = get_parent().get_node("StateMachine")
-	health -= attack.attack_damage
-	
+func heal(amount: int):
+	current_health += amount
+	emit_signal("health_changed", current_health)
+
+
+func die():
+	var death_state = ""
+
+	# Get the death state of the parent node.
+	match get_parent().get_groups()[0]:
+		"FireCat":
+			death_state = "FCatDeath"
+		"YarnCat":
+			death_state = "YCatDeath"
+		"Shadow":
+			death_state = "ShadowDeath"
+
+	# If parent node has a death state, switch to the state.
+	if death_state != "" and state_machine.has_node(death_state):
+		state_machine.on_child_transition(state_machine.current_state, death_state)
+
+
+func take_damage(damage: int):
+	if current_health <= 0:
+		print("already dead")
+		return
+
+	current_health -= damage
+
 	# Update health bar if it exists.
 	if get_parent().has_node("Healthbar"):
 		var healthbar = get_parent().get_node("Healthbar")
-		healthbar.health = health
-	
+		healthbar.health = current_health
+
 	"""We will probably use global variables later on."""
 	# If player, update the global variables as well.
 	#if get_parent().name == "Player":
 		#Globals.player_health = health
 		#emit_signal("health_changed", health)
 	
-	if health <= 0:  # If health is less than 1, parent node 'dies'.
-		var death_state = ""
-		
-		# Get the death state of the parent node.
-		match get_parent().get_groups()[0]:
-			"FireCat":
-				death_state = "FCatDeath"
-			"YarnCat":
-				death_state = "YCatDeath"
-			"Shadow":
-				death_state = "ShadowDeath"
-		
-		# If parent node has a death state, switch to the state.
-		if death_state != "" and state_machine.has_node(death_state):
-			state_machine.on_child_transition(state_machine.current_state, death_state)
-	
-	else:  # If there is enough health left to survive.
+	if current_health <= 0:
+		die()
+
+	else:  # If not dead
 		var hit_state = ""
-		
 		# Get the hit state of the parent node.
 		match get_parent().get_groups()[0]:
 			"FireCat":
@@ -60,8 +64,6 @@ func damage(attack: Attack):
 				hit_state = "YCatHit"
 			"Shadow":
 				hit_state = "ShadowHit"
-		
-		# If a hit state exists, switch to it.
+
 		if hit_state != "" and state_machine.has_node(hit_state):
 			state_machine.on_child_transition(state_machine.current_state, hit_state)
-	

@@ -8,14 +8,17 @@ var players
 var closest_player: Transform2D
 
 func enter():
-	players = get_tree().get_nodes_in_group("Player")
+	players = get_tree().get_nodes_in_group("YarnCat")
 	closest_player = find_closest_player()
+
 
 func exit():
 	pass
 
+
 func update(_delta):
 	pass
+
 
 func physics_update(_delta):
 	closest_player = find_closest_player()
@@ -32,6 +35,7 @@ func physics_update(_delta):
 
 	shadow.velocity = target_velocity
 	shadow.move_and_slide()
+
 
 func find_closest_player():
 	var new_closest_player = players[0]

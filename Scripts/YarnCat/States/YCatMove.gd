@@ -7,7 +7,6 @@ class_name YCatMove
 var cat
 
 func enter():
-	print("YarnCat ---> Entered YCatMove State")
 	cat = get_tree().get_first_node_in_group("YarnCat")
 
 func exit():
