@@ -4,8 +4,7 @@ class_name FCatHit
 var cat
 
 func enter():
-	print("FlameCat ---> Entered FCatHit State")
-	cat = get_tree().get_first_node_in_group("FlameCat")
+	cat = get_tree().get_first_node_in_group("FireCat")
 
 func exit():
 	pass

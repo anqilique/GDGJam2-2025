@@ -4,8 +4,9 @@ class_name YCatHit
 var cat
 
 func enter():
-	print("YarnCat ---> Entered YCatHit State")
 	cat = get_tree().get_first_node_in_group("YarnCat")
+
+	# play animation?
 
 func exit():
 	pass

@@ -4,7 +4,6 @@ class_name FCatDeath
 var cat
 
 func enter():
-	print("FireCat ---> Entered FCatDeath State")
 	cat = get_tree().get_first_node_in_group("FireCat")
 
 func exit():

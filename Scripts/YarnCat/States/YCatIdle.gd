@@ -4,7 +4,6 @@ class_name YCatIdle
 var cat
 
 func enter():
-	print("YarnCat ---> Entered YCatIdle State")
 	cat = get_tree().get_first_node_in_group("YarnCat")
 
 func exit():
