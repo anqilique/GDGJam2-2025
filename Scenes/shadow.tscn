@@ -51,8 +51,9 @@ shadow = NodePath("../..")
 movement_speed = 10.0
 metadata/_custom_type_script = "uid://c0rmkgfdvs7y5"
 
-[node name="ShadowHit" type="Node" parent="StateMachine"]
+[node name="ShadowHit" type="Node" parent="StateMachine" node_paths=PackedStringArray("shadow_state_machine")]
 script = ExtResource("3_xxmrs")
+shadow_state_machine = NodePath("..")
 metadata/_custom_type_script = "uid://dqp2wtkte5hth"
 
 [node name="ShadowDeath" type="Node" parent="StateMachine" node_paths=PackedStringArray("shadow_parent_node")]
