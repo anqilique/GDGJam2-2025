@@ -62,8 +62,9 @@ script = ExtResource("4_xxmrs")
 shadow_parent_node = NodePath("../..")
 metadata/_custom_type_script = "uid://b24sa2kmvcoxp"
 
-[node name="ShadowAttack" type="Node" parent="StateMachine"]
+[node name="ShadowAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("state_machine")]
 script = ExtResource("5_xxmrs")
+state_machine = NodePath("..")
 damage = 1
 metadata/_custom_type_script = "uid://cjee6ug4ipcnb"
 
