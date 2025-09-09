@@ -1,7 +1,7 @@
 extends State
 class_name YCatHit
 
-@export var yarn_cat_state_machine : StateMachine
+@export var state_machine : StateMachine
 var cat
 
 func enter():
@@ -11,7 +11,7 @@ func enter():
 	# play animation?
 
 	# when anim finished go back to idle:
-	yarn_cat_state_machine.on_child_transition(yarn_cat_state_machine.current_state, "YcatIdle")
+	state_machine.on_child_transition(state_machine.current_state, "YcatIdle")
 
 func exit():
 	pass
