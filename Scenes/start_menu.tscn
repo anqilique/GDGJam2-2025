@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqsmfx60181ns"]
+
+[ext_resource type="Script" uid="uid://gdl6ng1wjx3u" path="res://Scripts/UI/StartMenu.gd" id="1_jgtwh"]
+[ext_resource type="Theme" uid="uid://dljqrqoj41xf7" path="res://Assets/Resources/theme.tres" id="1_juhg0"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jgtwh")
+
+[node name="PlayButton" type="Button" parent="."]
+offset_left = 385.0
+offset_top = 110.0
+offset_right = 785.0
+offset_bottom = 210.0
+theme = ExtResource("1_juhg0")
+text = "PLAY"
+
+[node name="ControlsButton" type="Button" parent="."]
+offset_left = 385.0
+offset_top = 287.0
+offset_right = 785.0
+offset_bottom = 387.0
+theme = ExtResource("1_juhg0")
+text = "CONTROLS"
+
+[node name="CreditsButton" type="Button" parent="."]
+offset_left = 385.0
+offset_top = 451.0
+offset_right = 785.0
+offset_bottom = 551.0
+theme = ExtResource("1_juhg0")
+text = "CREDITS"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

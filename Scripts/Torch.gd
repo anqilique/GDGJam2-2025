@@ -22,6 +22,12 @@ func get_target_location():
 
 
 func move_torch_to_target(target):
+	
+	"""
+	Movement is kinda jittery ;-;
+	Maybe use .position instead?
+	"""
+	
 	var angle = get_angle_to(target)
 
 	var direction: Vector2
