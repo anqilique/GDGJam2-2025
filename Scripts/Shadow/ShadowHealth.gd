@@ -13,4 +13,5 @@ func _ready():
 func take_damage(damage):
 	current_health -= damage
 	if current_health <= 0:
-		state_machine.on_child_transition(state_machine.current_state, "ShadowDie")
+		#state_machine.on_child_transition(state_machine.current_state, "ShadowDie")
+		pass

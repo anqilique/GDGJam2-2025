@@ -15,6 +15,14 @@ run/main_scene="uid://cdk4cbpxqy2j5"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Assets/Art/icon.svg"
 
+[autoload]
+
+Globals="*res://Scripts/Components/Globals.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
+
 [global_group]
 
 FireCat=""

@@ -60,3 +60,6 @@ metadata/_custom_type_script = "uid://d2wxvba0tns6f"
 script = ExtResource("6_jrn06")
 state_machine = NodePath("..")
 metadata/_custom_type_script = "uid://cr0mp0gn4lrw"
+
+[node name="TorchPosition" type="Node2D" parent="."]
+position = Vector2(-5, 3)
