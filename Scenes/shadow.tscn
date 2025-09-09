@@ -26,8 +26,10 @@ process_mode = 3
 modulate = Color(0.591381, 0, 0.143707, 1)
 texture = SubResource("PlaceholderTexture2D_8gbba")
 
-[node name="Hitbox Area2D" type="Area2D" parent="."]
+[node name="Hitbox Area2D" type="Area2D" parent="." node_paths=PackedStringArray("state_machine", "health_component")]
 script = ExtResource("1_pt8rj")
+state_machine = NodePath("../StateMachine")
+health_component = NodePath("../HealthComponent")
 
 [node name="Hitbox" type="CollisionShape2D" parent="Hitbox Area2D"]
 shape = SubResource("CircleShape2D_8pobm")
@@ -50,8 +52,9 @@ shadow = NodePath("../..")
 movement_speed = 10.0
 metadata/_custom_type_script = "uid://c0rmkgfdvs7y5"
 
-[node name="ShadowHit" type="Node" parent="StateMachine"]
+[node name="ShadowHit" type="Node" parent="StateMachine" node_paths=PackedStringArray("state_machine")]
 script = ExtResource("3_xxmrs")
+state_machine = NodePath("..")
 metadata/_custom_type_script = "uid://dqp2wtkte5hth"
 
 [node name="ShadowDeath" type="Node" parent="StateMachine" node_paths=PackedStringArray("shadow_parent_node")]
