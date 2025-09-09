@@ -1,50 +1,23 @@
-extends CharacterBody2D
+extends Node2D
 
 @export var movement_speed: float
 
-const MAX_DISTANCE = 10
 # Maximum distance allowed from the holder. For visual purposes.
+const MAX_DISTANCE := 10
 
-var target_location
-var distance_to_target
+const TORCH_MOVE_SPEED := 0.04
+var target : Node2D
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	transform.origin = get_target_location()
+	target = get_tree().get_first_node_in_group("YarnCat")
 
 
-func get_target_location():
-	match Globals.torch_holder:
-		"YarnCat": target_location = get_tree().get_first_node_in_group("YarnCat").transform.origin
-	
-	return target_location
-
-
-func move_torch_to_target(target):
-	
-	"""
-	Movement is kinda jittery ;-;
-	Maybe use .position instead?
-	"""
-	
-	var angle = get_angle_to(target)
-
-	var direction: Vector2
-	direction.x = cos(angle)
-	direction.y = sin(angle)
-
-	var target_velocity: Vector2
-	target_velocity.x = direction.x * movement_speed
-	target_velocity.y = direction.y * movement_speed
-
-	velocity = target_velocity
-	move_and_slide()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	distance_to_target = transform.origin.distance_to(get_target_location())
-	
-	if distance_to_target >= MAX_DISTANCE:
-		move_torch_to_target(get_target_location())
+	var distance_to_target := transform.origin.distance_to(target.transform.origin)
+
+	if distance_to_target > MAX_DISTANCE:
+		transform.origin = lerp(transform.origin, target.transform.origin, TORCH_MOVE_SPEED)
+
+	# if it gets too close the torch gets pushed away a little
+	elif distance_to_target <= MAX_DISTANCE-2:
+		transform.origin = lerp(transform.origin, (target.transform.origin + transform.origin), delta)
