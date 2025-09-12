@@ -7,7 +7,7 @@ class_name ShadowAttack
 @export var damage : int
 
 func enter():
-	var yarn_cat_health = get_tree().get_nodes_in_group("YarnCat")[0].find_child("HealthComponent")
+	var yarn_cat_health = get_tree().get_first_node_in_group("YarnCat").get_node("HealthComponent")
 	print("ycat taking ", damage, " damage")
 	yarn_cat_health.take_damage(damage)
 

@@ -27,7 +27,12 @@ func _process(_delta):
 	if state_machine.current_state.name == "ShadowAttack":
 		return
 	if is_touching_yarn_cat:
-		state_machine.on_child_transition(state_machine.current_state, "ShadowAttack")
+		var yarn_cat = get_tree().get_first_node_in_group("YarnCat")
+		
+		if yarn_cat.get_node("StateMachine").current_state.name != "YCatDeath":
+			state_machine.on_child_transition(state_machine.current_state, "ShadowAttack")
+		else:
+			print("Shadow detects Yarn Cat Dead")
 
 
 func _on_area_exited(_area : Area2D):
