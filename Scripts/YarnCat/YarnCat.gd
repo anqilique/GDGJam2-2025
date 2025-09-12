@@ -10,7 +10,7 @@ func _ready() -> void:
 
 
 func _physics_process(_delta):
-	if Input.is_action_just_pressed("drop_yarn") and can_drop:
+	if Input.is_action_just_pressed("yarn_cat_drop_yarn") and can_drop:
 		var new_yarn = yarn_piece.instantiate()
 		var cat_position = global_position
 		
