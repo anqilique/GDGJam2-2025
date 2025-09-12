@@ -22,6 +22,7 @@ radius = 5.0
 height = 10.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i562e"]
+radius = 13.0
 
 [node name="YarnCat" type="CharacterBody2D" groups=["YarnCat"]]
 process_mode = 3
