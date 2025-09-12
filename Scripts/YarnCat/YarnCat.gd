@@ -3,10 +3,18 @@ extends CharacterBody2D
 @export var yarn_piece: PackedScene
 
 var can_drop = true
+var burn_range
+var fire_cat
+
+@export var pass_area : Area2D
+@export var pass_area_sprite : Sprite2D
+
+var in_range : bool
+var passing_range
 
 
 func _ready() -> void:
-	pass
+	fire_cat = get_tree().get_first_node_in_group("FireCat")
 
 
 func _physics_process(_delta):
@@ -21,6 +29,29 @@ func _physics_process(_delta):
 			
 			can_drop = false
 			$CanDropTimer.start()
+	
+	burn_range = $BurnArea2D.get_overlapping_bodies()
+	if fire_cat in burn_range:
+		print("YARNCAT BURN IN RANGE OF FIRECAT")
+	
+	if (Input.is_action_just_released("yarn_cat_pass_torch") and in_range):
+		print("passed torch!!!!!!!!!!!!!!!!!!!!!!!!!1")
+		
+		match Globals.torch_holder:
+			"YarnCat":
+				Globals.torch_holder = "FireCat"
+			"FireCat":
+				Globals.torch_holder = "YarnCat"
+		
+	var torch = get_tree().get_first_node_in_group("Torch")
+	torch.change_target(Globals.torch_holder)
+
+	passing_range = $PassArea2D.get_overlapping_bodies()
+	if fire_cat in passing_range:
+		$PassArea2D.show()
+	else:
+		$PassArea2D.hide()
+	in_range = $PassArea2D.is_visible()  # true/false
 
 
 func _on_can_drop_timer_timeout() -> void:
