@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://xbpb81mvi081"]
+
+[ext_resource type="Script" uid="uid://bbi0oy675kllc" path="res://Scripts/yarn_piece.gd" id="1_tbdu7"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_i1ekx"]
+size = Vector2(10, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dbgia"]
+radius = 4.0
+
+[node name="Yarn" type="Area2D"]
+script = ExtResource("1_tbdu7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.0924, 0.60326, 0.84, 1)
+scale = Vector2(0.59885, 0.59885)
+texture = SubResource("PlaceholderTexture2D_i1ekx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dbgia")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
