@@ -5,10 +5,10 @@ extends Node2D
 # Maximum distance allowed from the holder. For visual purposes.
 const MAX_DISTANCE := 10
 
-const TORCH_MOVE_SPEED := 0.04
+const TORCH_MOVE_SPEED := 0.05
 var target : Node2D
 
-func _ready() -> void:
+func _ready():
 	target = get_tree().get_first_node_in_group(Globals.torch_holder)
 
 
