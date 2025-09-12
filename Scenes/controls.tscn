@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://gp7d0ao1mwm1"]
+
+[ext_resource type="Theme" uid="uid://dljqrqoj41xf7" path="res://Assets/Resources/theme.tres" id="1_8qavf"]
+[ext_resource type="Script" uid="uid://dohiqntx1mdel" path="res://Scripts/Controls.gd" id="1_e8c2f"]
+
+[node name="Controls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e8c2f")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.572549)
+
+[node name="Title" type="Label" parent="CanvasLayer"]
+offset_left = 256.0
+offset_top = 28.0
+offset_right = 896.0
+offset_bottom = 116.0
+theme_override_font_sizes/font_size = 64
+text = "Controls"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Inputs" type="Label" parent="CanvasLayer"]
+offset_left = 320.0
+offset_top = 160.0
+offset_right = 832.0
+offset_bottom = 397.0
+theme_override_font_sizes/font_size = 32
+text = "Movement - WASD or Arrow Keys
+
+Attack - Click Left Mouse Button
+
+Pause - P or Esc Key"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 512.0
+offset_top = 512.0
+offset_right = 640.0
+offset_bottom = 575.0
+theme = ExtResource("1_8qavf")
+theme_override_font_sizes/font_size = 40
+text = "BACK"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
