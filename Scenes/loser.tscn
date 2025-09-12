@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cdvytg7osk3eu"]
+
+[node name="loser" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.784314)
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 256.0
+offset_right = 960.0
+offset_bottom = 393.0
+theme_override_font_sizes/font_size = 100
+text = "HAHA! LOSER!"
+horizontal_alignment = 1
