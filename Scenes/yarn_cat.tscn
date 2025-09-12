@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ymhfxshwidbw" path="res://Scripts/YarnCat/YarnCat.gd" id="1_h6rup"]
 [ext_resource type="Script" uid="uid://cjson8dx74ue8" path="res://Scripts/Components/StateMachine.gd" id="2_hfd8b"]
 [ext_resource type="PackedScene" uid="uid://r01f1wrgnauk" path="res://Scenes/Components/HealthComponent.tscn" id="2_i562e"]
+[ext_resource type="PackedScene" uid="uid://xbpb81mvi081" path="res://Scenes/yarn_piece.tscn" id="2_p0tp3"]
 [ext_resource type="Script" uid="uid://bk5cveh720lnc" path="res://Scripts/YarnCat/States/YCatIdle.gd" id="3_308qq"]
 [ext_resource type="Script" uid="uid://cwe0d5fdy0dxd" path="res://Scripts/YarnCat/States/YCatMove.gd" id="3_gm3cx"]
 [ext_resource type="PackedScene" uid="uid://4j24cfujirgk" path="res://Scenes/Components/HurtboxComponent.tscn" id="3_p0tp3"]
@@ -25,6 +26,7 @@ height = 10.0
 [node name="YarnCat" type="CharacterBody2D" groups=["YarnCat"]]
 process_mode = 3
 script = ExtResource("1_h6rup")
+yarn_piece = ExtResource("2_p0tp3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.0924, 0.60326, 0.84, 1)
@@ -67,8 +69,8 @@ metadata/_custom_type_script = "uid://cr0mp0gn4lrw"
 [node name="TorchPosition" type="Node2D" parent="."]
 position = Vector2(-5, 3)
 
-[node name="PassArea2D" type="Area2D" parent="."]
-script = ExtResource("9_i562e")
+[node name="CanDropTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PassArea2D"]
-shape = SubResource("CircleShape2D_bvyg1")
+[connection signal="timeout" from="CanDropTimer" to="." method="_on_can_drop_timer_timeout"]
