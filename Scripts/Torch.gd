@@ -9,15 +9,20 @@ const TORCH_MOVE_SPEED := 0.04
 var target : Node2D
 
 func _ready() -> void:
-	target = get_tree().get_first_node_in_group("YarnCat")
+	target = get_tree().get_first_node_in_group(Globals.torch_holder)
+
+
+func change_target(new_target):
+	target = get_tree().get_first_node_in_group(Globals.torch_holder)
 
 
 func _process(delta: float) -> void:
-	var distance_to_target := transform.origin.distance_to(target.transform.origin)
+	if target:
+		var distance_to_target := transform.origin.distance_to(target.transform.origin)
 
-	if distance_to_target > MAX_DISTANCE:
-		transform.origin = lerp(transform.origin, target.transform.origin, TORCH_MOVE_SPEED)
+		if distance_to_target > MAX_DISTANCE:
+			transform.origin = lerp(transform.origin, target.transform.origin, TORCH_MOVE_SPEED)
 
-	# if it gets too close the torch gets pushed away a little
-	elif distance_to_target <= MAX_DISTANCE-2:
-		transform.origin = lerp(transform.origin, (target.transform.origin + transform.origin), delta)
+		# if it gets too close the torch gets pushed away a little
+		elif distance_to_target <= MAX_DISTANCE-2:
+			transform.origin = lerp(transform.origin, (target.transform.origin + transform.origin), delta)

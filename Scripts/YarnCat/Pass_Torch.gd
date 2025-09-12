@@ -5,9 +5,17 @@ extends Node
 var in_range : bool
 
 func _process(_delta):
-	if (Input.is_action_pressed("yarn_cat_pass_torch") and in_range):
+	if (Input.is_action_just_released("yarn_cat_pass_torch") and in_range):
 		print("passed torch!!!!!!!!!!!!!!!!!!!!!!!!!1")
-		pass
+		
+		match Globals.torch_holder:
+			"YarnCat":
+				Globals.torch_holder = "FireCat"
+			"FireCat":
+				Globals.torch_holder = "YarnCat"
+		
+		var torch = get_tree().get_first_node_in_group("Torch")
+		torch.change_target(Globals.torch_holder)
 
 
 func _on_area_entered(area2d: Area2D):

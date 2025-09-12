@@ -13,7 +13,6 @@ func _physics_process(_delta):
 	if get_node("StateMachine").current_state.name != "YCatDeath":
 		if Input.is_action_just_pressed("yarn_cat_drop_yarn") and can_drop:
 			var new_yarn = yarn_piece.instantiate()
-			var cat_position = global_position
 			
 			new_yarn.position.x = randf_range(global_position.x - 10, global_position.x + 10)
 			new_yarn.position.y = randf_range(global_position.y - 10, global_position.y + 10)

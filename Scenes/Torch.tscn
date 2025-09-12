@@ -22,7 +22,7 @@ fill_to = Vector2(0.0981759, 0.865055)
 radius = 1.0
 height = 8.0
 
-[node name="Torch" type="CharacterBody2D"]
+[node name="Torch" type="CharacterBody2D" groups=["Torch"]]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_wced7")
