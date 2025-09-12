@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://r7jxd36vluqq"]
+[gd_scene load_steps=13 format=3 uid="uid://r7jxd36vluqq"]
 
 [ext_resource type="Script" uid="uid://c8mrrp0yjara" path="res://Scripts/FireCat/FireCat.gd" id="1_l7j73"]
 [ext_resource type="Script" uid="uid://cjson8dx74ue8" path="res://Scripts/Components/StateMachine.gd" id="2_npn7s"]
@@ -18,6 +18,8 @@ radius = 5.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vee4i"]
 radius = 5.0
 height = 10.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vee4i"]
 
 [node name="FireCat" type="CharacterBody2D" groups=["FireCat"]]
 process_mode = 3
@@ -58,3 +60,8 @@ metadata/_custom_type_script = "uid://da353sbg6mp5a"
 [node name="FCatHit" type="Node" parent="StateMachine"]
 script = ExtResource("6_05lf0")
 metadata/_custom_type_script = "uid://b77q21jp2dn0r"
+
+[node name="PassArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PassArea2D"]
+shape = SubResource("CircleShape2D_vee4i")

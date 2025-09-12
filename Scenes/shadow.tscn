@@ -69,3 +69,4 @@ damage = 1
 metadata/_custom_type_script = "uid://cjee6ug4ipcnb"
 
 [connection signal="area_entered" from="Hitbox Area2D" to="Hitbox Area2D" method="_on_area_entered"]
+[connection signal="area_exited" from="Hitbox Area2D" to="Hitbox Area2D" method="_on_area_exited"]

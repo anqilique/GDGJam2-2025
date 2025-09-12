@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://2t5bc1akjdes"]
+[gd_scene load_steps=14 format=3 uid="uid://2t5bc1akjdes"]
 
 [ext_resource type="Script" uid="uid://ymhfxshwidbw" path="res://Scripts/YarnCat/YarnCat.gd" id="1_h6rup"]
 [ext_resource type="Script" uid="uid://cjson8dx74ue8" path="res://Scripts/Components/StateMachine.gd" id="2_hfd8b"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://4j24cfujirgk" path="res://Scenes/Components/HurtboxComponent.tscn" id="3_p0tp3"]
 [ext_resource type="Script" uid="uid://d2wxvba0tns6f" path="res://Scripts/YarnCat/States/YCatDeath.gd" id="5_63v1j"]
 [ext_resource type="Script" uid="uid://cr0mp0gn4lrw" path="res://Scripts/YarnCat/States/YCatHit.gd" id="6_jrn06"]
+[ext_resource type="Script" uid="uid://gxj8aedvk77p" path="res://Scripts/YarnCat/Pass_Torch.gd" id="9_i562e"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8gbba"]
 size = Vector2(10, 10)
@@ -18,6 +19,8 @@ radius = 5.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i562e"]
 radius = 5.0
 height = 10.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bvyg1"]
 
 [node name="YarnCat" type="CharacterBody2D" groups=["YarnCat"]]
 process_mode = 3
@@ -63,3 +66,9 @@ metadata/_custom_type_script = "uid://cr0mp0gn4lrw"
 
 [node name="TorchPosition" type="Node2D" parent="."]
 position = Vector2(-5, 3)
+
+[node name="PassArea2D" type="Area2D" parent="."]
+script = ExtResource("9_i562e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PassArea2D"]
+shape = SubResource("CircleShape2D_bvyg1")

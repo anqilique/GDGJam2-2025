@@ -18,6 +18,7 @@ fire_cat = NodePath("../FireCat")
 
 [node name="FireCat" parent="." instance=ExtResource("2_bo1nx")]
 position = Vector2(22, -6)
+script = null
 
 [node name="YarnCat" parent="." instance=ExtResource("3_8gbba")]
 position = Vector2(23, 12)
