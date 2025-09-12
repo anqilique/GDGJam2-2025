@@ -9,6 +9,7 @@ anchors_preset = 0
 script = ExtResource("1_jgtwh")
 
 [node name="PlayButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 385.0
 offset_top = 110.0
 offset_right = 785.0
@@ -17,6 +18,7 @@ theme = ExtResource("1_juhg0")
 text = "PLAY"
 
 [node name="ControlsButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 385.0
 offset_top = 287.0
 offset_right = 785.0
@@ -25,6 +27,7 @@ theme = ExtResource("1_juhg0")
 text = "CONTROLS"
 
 [node name="CreditsButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 385.0
 offset_top = 451.0
 offset_right = 785.0
@@ -33,3 +36,5 @@ theme = ExtResource("1_juhg0")
 text = "CREDITS"
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="ControlsButton" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
