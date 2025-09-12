@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://2t5bc1akjdes"]
+[gd_scene load_steps=16 format=3 uid="uid://2t5bc1akjdes"]
 
 [ext_resource type="Script" uid="uid://ymhfxshwidbw" path="res://Scripts/YarnCat/YarnCat.gd" id="1_h6rup"]
 [ext_resource type="Script" uid="uid://cjson8dx74ue8" path="res://Scripts/Components/StateMachine.gd" id="2_hfd8b"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://d2wxvba0tns6f" path="res://Scripts/YarnCat/States/YCatDeath.gd" id="5_63v1j"]
 [ext_resource type="Script" uid="uid://cr0mp0gn4lrw" path="res://Scripts/YarnCat/States/YCatHit.gd" id="6_jrn06"]
 [ext_resource type="Script" uid="uid://gxj8aedvk77p" path="res://Scripts/YarnCat/Pass_Torch.gd" id="9_i562e"]
+[ext_resource type="Texture2D" uid="uid://elledndoyhr2" path="res://Assets/Art/circle.png" id="11_ebo8h"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8gbba"]
 size = Vector2(10, 10)
@@ -74,12 +75,18 @@ position = Vector2(-5, 3)
 wait_time = 2.0
 one_shot = true
 
-[node name="PassArea2D" type="Area2D" parent="." node_paths=PackedStringArray("pass_area")]
+[node name="PassArea2D" type="Area2D" parent="." node_paths=PackedStringArray("pass_area", "pass_area_sprite")]
 script = ExtResource("9_i562e")
 pass_area = NodePath(".")
+pass_area_sprite = NodePath("Sprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PassArea2D"]
 shape = SubResource("CircleShape2D_i562e")
+
+[node name="Sprite2D" type="Sprite2D" parent="PassArea2D"]
+z_index = -1
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("11_ebo8h")
 
 [connection signal="timeout" from="CanDropTimer" to="." method="_on_can_drop_timer_timeout"]
 [connection signal="area_entered" from="PassArea2D" to="PassArea2D" method="_on_area_entered"]

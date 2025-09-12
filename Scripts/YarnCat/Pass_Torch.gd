@@ -1,6 +1,7 @@
 extends Node
 
 @export var pass_area : Area2D
+@export var pass_area_sprite : Sprite2D
 
 var in_range : bool
 
@@ -16,6 +17,12 @@ func _process(_delta):
 		
 		var torch = get_tree().get_first_node_in_group("Torch")
 		torch.change_target(Globals.torch_holder)
+
+
+	if in_range:
+		pass_area.show()
+	else:
+		pass_area.hide()
 
 
 func _on_area_entered(area2d: Area2D):
