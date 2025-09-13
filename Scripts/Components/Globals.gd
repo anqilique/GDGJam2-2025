@@ -9,3 +9,5 @@ var is_fire_cat_visible = true
 
 var yarn_cat_health = 9
 var fire_cat_health = 9
+
+var torch_flames = 10

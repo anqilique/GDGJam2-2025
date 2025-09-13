@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://kmmcioaaast4"]
+[gd_scene load_steps=7 format=3 uid="uid://kmmcioaaast4"]
 
 [ext_resource type="Theme" uid="uid://dljqrqoj41xf7" path="res://Assets/Resources/theme.tres" id="1_jxero"]
-[ext_resource type="Script" path="res://Scripts/UI.gd" id="1_qdvrb"]
+[ext_resource type="Script" uid="uid://cj0dd6gveslkt" path="res://Scripts/UI.gd" id="1_qdvrb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdvrb"]
 bg_color = Color(0.952941, 0.254902, 0.286275, 1)
@@ -15,6 +15,13 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_qdvrb")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nf4gj"]
 bg_color = Color(0.308393, 0.526454, 0.978423, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2246s"]
+bg_color = Color(0.952941, 0.729412, 0.286275, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -53,6 +60,19 @@ theme = ExtResource("1_jxero")
 theme_override_styles/fill = SubResource("StyleBoxFlat_nf4gj")
 max_value = 9.0
 step = 1.0
+value = 4.0
+rounded = true
+show_percentage = false
+
+[node name="TorchFlames" type="ProgressBar" parent="HealthBars"]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 16.0
+offset_right = 832.0
+offset_bottom = 43.0
+theme = SubResource("Theme_jxero")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2246s")
+max_value = 10.0
 value = 4.0
 rounded = true
 show_percentage = false
