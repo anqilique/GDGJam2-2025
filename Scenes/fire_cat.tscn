@@ -56,8 +56,9 @@ metadata/_custom_type_script = "uid://4n0vsokd7a1h"
 script = ExtResource("5_4fkeu")
 metadata/_custom_type_script = "uid://da353sbg6mp5a"
 
-[node name="FCatHit" type="Node" parent="StateMachine"]
+[node name="FCatHit" type="Node" parent="StateMachine" node_paths=PackedStringArray("state_machine")]
 script = ExtResource("6_05lf0")
+state_machine = NodePath("..")
 metadata/_custom_type_script = "uid://b77q21jp2dn0r"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

@@ -44,5 +44,5 @@ func on_child_transition(state, new_state_name):
 	
 	# Go to the new state, set it as current.
 	new_state.enter()
-	print(current_state.name, " -> ", new_state.name)
+	# print(current_state.name, " -> ", new_state.name)
 	current_state = new_state

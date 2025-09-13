@@ -6,7 +6,7 @@ extends Area2D
 var is_touching_yarn_cat : bool
 
 # should probably have this variable on the firecat somewhere
-var fire_cat_body_damage := 2
+var fire_cat_body_damage := 1
 
 func _ready():
 	is_touching_yarn_cat = false
@@ -21,10 +21,11 @@ func _on_area_entered(area : Area2D):
 		# Damage shadow if touching firecat (not implemented!!!)
 		state_machine.on_child_transition(state_machine.current_state, "ShadowHit")
 		health_component.take_damage(fire_cat_body_damage)
+		var fire_cat_health_component = area.get_parent().get_node("HealthComponent")
+		fire_cat_health_component.take_damage(1)
 
 
 func _process(_delta):
-	
 	if state_machine.current_state.name == "ShadowAttack":
 		return
 	if is_touching_yarn_cat:

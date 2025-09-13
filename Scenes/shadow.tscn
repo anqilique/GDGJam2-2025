@@ -39,7 +39,7 @@ health_component = NodePath("../HealthComponent")
 shape = SubResource("CircleShape2D_8pobm")
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_7lfe7")]
-max_health = 10
+max_health = 1
 
 [node name="HurtboxComponent" parent="." instance=ExtResource("2_pt8rj")]
 
