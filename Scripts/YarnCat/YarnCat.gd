@@ -47,7 +47,7 @@ func _physics_process(_delta):
 		$PassArea2D.show()
 	else:
 		$PassArea2D.hide()
-	in_range = $PassArea2D.is_visible()  # true/false
+	in_range = $PassArea2D.is_visible()  # true/false 
 	
 	burn_range = $BurnArea2D.get_overlapping_bodies()
 	if fire_cat in burn_range:
