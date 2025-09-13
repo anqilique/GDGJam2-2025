@@ -52,8 +52,6 @@ func _physics_process(_delta):
 	burn_range = $BurnArea2D.get_overlapping_bodies()
 	if fire_cat in burn_range:
 		get_tree().change_scene_to_file("res://Scenes/loss_screen.tscn")
-	
-	
 
 
 func _on_can_drop_timer_timeout() -> void:
