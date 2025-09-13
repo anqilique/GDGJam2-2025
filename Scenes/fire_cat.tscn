@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://r7jxd36vluqq"]
+[gd_scene load_steps=13 format=3 uid="uid://r7jxd36vluqq"]
 
 [ext_resource type="Script" uid="uid://c8mrrp0yjara" path="res://Scripts/FireCat/FireCat.gd" id="1_l7j73"]
 [ext_resource type="Script" uid="uid://cjson8dx74ue8" path="res://Scripts/Components/StateMachine.gd" id="2_npn7s"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dmayw70bw8ny8" path="res://Scripts/FireCat/States/FCatIdle.gd" id="4_d1awe"]
 [ext_resource type="Script" uid="uid://da353sbg6mp5a" path="res://Scripts/FireCat/States/FCatDeath.gd" id="5_4fkeu"]
 [ext_resource type="Script" uid="uid://b77q21jp2dn0r" path="res://Scripts/FireCat/States/FCatHit.gd" id="6_05lf0"]
+[ext_resource type="Script" uid="uid://72bfxl1rtp3" path="res://Scripts/ChangeFireCatGlobal.gd" id="9_esvvl"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8gbba"]
 size = Vector2(10, 10)
@@ -58,3 +59,10 @@ metadata/_custom_type_script = "uid://da353sbg6mp5a"
 [node name="FCatHit" type="Node" parent="StateMachine"]
 script = ExtResource("6_05lf0")
 metadata/_custom_type_script = "uid://b77q21jp2dn0r"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-5, -5, 10, 10)
+script = ExtResource("9_esvvl")
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="VisibleOnScreenNotifier2D" method="_on_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="VisibleOnScreenNotifier2D" method="_on_screen_exited"]
