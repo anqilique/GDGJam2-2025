@@ -78,6 +78,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="PassArea2D" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PassArea2D"]
 shape = SubResource("CircleShape2D_i562e")
@@ -88,6 +89,7 @@ scale = Vector2(0.044674, 0.044674)
 texture = ExtResource("11_ebo8h")
 
 [node name="BurnArea2D" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BurnArea2D"]
 shape = SubResource("CircleShape2D_ebo8h")
