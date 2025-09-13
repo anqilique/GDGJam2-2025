@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://clawv8kask8pi"]
+[gd_scene load_steps=13 format=3 uid="uid://clawv8kask8pi"]
 
 [ext_resource type="PackedScene" uid="uid://r01f1wrgnauk" path="res://Scenes/Components/HealthComponent.tscn" id="1_7lfe7"]
 [ext_resource type="Script" uid="uid://coq8d5tcwbsha" path="res://Scripts/Shadow/ShadowHitbox.gd" id="1_pt8rj"]
@@ -16,6 +16,10 @@ size = Vector2(10, 10)
 radius = 8.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s1j64"]
+radius = 5.0
+height = 10.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pt8rj"]
 radius = 5.0
 height = 10.0
 
@@ -68,6 +72,9 @@ script = ExtResource("5_xxmrs")
 state_machine = NodePath("..")
 damage = 1
 metadata/_custom_type_script = "uid://cjee6ug4ipcnb"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_pt8rj")
 
 [connection signal="area_entered" from="Hitbox Area2D" to="Hitbox Area2D" method="_on_area_entered"]
 [connection signal="area_exited" from="Hitbox Area2D" to="Hitbox Area2D" method="_on_area_exited"]

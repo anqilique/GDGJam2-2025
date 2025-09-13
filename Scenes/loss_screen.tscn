@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdvytg7osk3eu"]
 
-[ext_resource type="Script" uid="uid://c18nfyf1mkn7g" path="res://Scripts/Loss_screen.gd" id="1_0dmjc"]
+[ext_resource type="Script" path="res://Scripts/Loss_screen.gd" id="1_0dmjc"]
 [ext_resource type="Theme" uid="uid://dljqrqoj41xf7" path="res://Assets/Resources/theme.tres" id="2_jhgxs"]
 
 [node name="loser" type="Control"]
