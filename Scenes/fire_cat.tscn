@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://dmayw70bw8ny8" path="res://Scripts/FireCat/States/FCatIdle.gd" id="4_d1awe"]
 [ext_resource type="Script" uid="uid://da353sbg6mp5a" path="res://Scripts/FireCat/States/FCatDeath.gd" id="5_4fkeu"]
 [ext_resource type="Script" uid="uid://b77q21jp2dn0r" path="res://Scripts/FireCat/States/FCatHit.gd" id="6_05lf0"]
-[ext_resource type="Script" uid="uid://72bfxl1rtp3" path="res://Scripts/ChangeFireCatGlobal.gd" id="9_esvvl"]
+[ext_resource type="Script" path="res://Scripts/ChangeFireCatGlobal.gd" id="9_esvvl"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8gbba"]
 size = Vector2(10, 10)
@@ -66,5 +66,10 @@ metadata/_custom_type_script = "uid://b77q21jp2dn0r"
 rect = Rect2(-5, -5, 10, 10)
 script = ExtResource("9_esvvl")
 
+[node name="ReviveTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="VisibleOnScreenNotifier2D" method="_on_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="VisibleOnScreenNotifier2D" method="_on_screen_exited"]
+[connection signal="timeout" from="ReviveTimer" to="." method="_on_revive_timer_timeout"]

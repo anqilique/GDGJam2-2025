@@ -18,11 +18,13 @@ func _on_area_entered(area : Area2D):
 		is_touching_yarn_cat = true
 
 	if area.get_parent().get_groups().has("FireCat"):
-		# Damage shadow if touching firecat (not implemented!!!)
-		state_machine.on_child_transition(state_machine.current_state, "ShadowHit")
-		health_component.take_damage(fire_cat_body_damage)
-		var fire_cat_health_component = area.get_parent().get_node("HealthComponent")
-		fire_cat_health_component.take_damage(1)
+		
+		if Globals.fire_cat_health > 0:
+			state_machine.on_child_transition(state_machine.current_state, "ShadowHit")
+			health_component.take_damage(fire_cat_body_damage)
+			
+			var fire_cat_health_component = area.get_parent().get_node("HealthComponent")
+			fire_cat_health_component.take_damage(1)
 
 
 func _process(_delta):
