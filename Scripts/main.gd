@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 
 
 func _on_shadow_spawn_timer_timeout() -> void:
-	print("SPAWN AAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHH")
 	var shadow = shadow_scene.instantiate()
 	
 	var shadow_spawn_location = $Camera2D.global_position

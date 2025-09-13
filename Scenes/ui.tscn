@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://dce7lpdpevvk5"]
+
+[ext_resource type="Theme" uid="uid://dljqrqoj41xf7" path="res://Assets/Resources/theme.tres" id="1_jxero"]
+[ext_resource type="Script" uid="uid://cj0dd6gveslkt" path="res://Scripts/UI.gd" id="1_qdvrb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdvrb"]
+bg_color = Color(0.952941, 0.254902, 0.286275, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_jxero"]
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_qdvrb")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nf4gj"]
+bg_color = Color(0.308393, 0.526454, 0.978423, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_qdvrb")
+
+[node name="HealthBars" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FCatHealth" type="ProgressBar" parent="HealthBars"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 144.0
+offset_bottom = 43.0
+theme = SubResource("Theme_jxero")
+max_value = 9.0
+step = 1.0
+value = 4.0
+rounded = true
+show_percentage = false
+
+[node name="YCatHealth" type="ProgressBar" parent="HealthBars"]
+offset_left = 1136.0
+offset_top = 16.0
+offset_right = 1264.0
+offset_bottom = 43.0
+scale = Vector2(-1, 1)
+theme = ExtResource("1_jxero")
+theme_override_styles/fill = SubResource("StyleBoxFlat_nf4gj")
+max_value = 9.0
+step = 1.0
+value = 4.0
+rounded = true
+show_percentage = false
