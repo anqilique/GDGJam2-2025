@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://cdvytg7osk3eu"]
+[gd_scene load_steps=3 format=3 uid="uid://cdvytg7osk3eu"]
+
+[ext_resource type="Script" uid="uid://c18nfyf1mkn7g" path="res://Scripts/Loss_screen.gd" id="1_0dmjc"]
+[ext_resource type="Theme" uid="uid://dljqrqoj41xf7" path="res://Assets/Resources/theme.tres" id="2_jhgxs"]
 
 [node name="loser" type="Control"]
 layout_mode = 3
@@ -7,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_0dmjc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -18,9 +22,21 @@ color = Color(0, 0, 0, 0.784314)
 [node name="Label" type="Label" parent="CanvasLayer/ColorRect"]
 layout_mode = 0
 offset_left = 192.0
-offset_top = 256.0
+offset_top = 224.0
 offset_right = 960.0
-offset_bottom = 393.0
+offset_bottom = 361.0
 theme_override_font_sizes/font_size = 100
 text = "HAHA! LOSER!"
 horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 512.0
+offset_top = 448.0
+offset_right = 643.0
+offset_bottom = 501.0
+theme = ExtResource("2_jhgxs")
+theme_override_font_sizes/font_size = 32
+text = "REPLAY"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]
