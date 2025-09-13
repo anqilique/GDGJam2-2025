@@ -1,99 +1,27 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-[gd_scene load_steps=9 format=3 uid="uid://cdk4cbpxqy2j5"]
-=======
-[gd_scene load_steps=8 format=3 uid="uid://cu7k1o7cvtfnr"]
->>>>>>> Stashed changes
-=======
-[gd_scene load_steps=8 format=3 uid="uid://cu7k1o7cvtfnr"]
->>>>>>> Stashed changes
+[gd_scene load_steps=6 format=3 uid="uid://cu7k1o7cvtfnr"]
 
 [ext_resource type="Script" uid="uid://bcrdf5jxhxnun" path="res://Scripts/main.gd" id="1_21xkr"]
 [ext_resource type="PackedScene" uid="uid://r7jxd36vluqq" path="res://Scenes/fire_cat.tscn" id="2_bo1nx"]
+[ext_resource type="Script" uid="uid://cha0dey3px8f1" path="res://Scripts/CameraController.gd" id="2_kry3j"]
 [ext_resource type="PackedScene" uid="uid://2t5bc1akjdes" path="res://Scenes/yarn_cat.tscn" id="3_8gbba"]
-[ext_resource type="PackedScene" uid="uid://clawv8kask8pi" path="res://Scenes/shadow.tscn" id="4_jjvhh"]
-<<<<<<< Updated upstream
-[ext_resource type="PackedScene" uid="uid://bac2xxb4dppcq" path="res://Scenes/camera_2d.tscn" id="5_6bp64"]
-[ext_resource type="PackedScene" uid="uid://bm0xq7m4hiuve" path="res://Scenes/Torch.tscn" id="5_21xkr"]
-[ext_resource type="Script" uid="uid://dw6mcecg27wtv" path="res://Scripts/Arrows/DirectionArrowYarn.gd" id="7_6bp64"]
-[ext_resource type="Texture2D" uid="uid://ebnov8rdkl3i" path="res://Assets/Art/Sprite-0001.png" id="7_344ge"]
-[ext_resource type="Script" uid="uid://dxkwm0vmbd0rt" path="res://Scripts/Arrows/DirectionArrowFire.gd" id="7_ynf5e"]
-=======
 [ext_resource type="PackedScene" uid="uid://bm0xq7m4hiuve" path="res://Scenes/torch.tscn" id="5_21xkr"]
-[ext_resource type="PackedScene" uid="uid://cr7tsf5343iuh" path="res://Scenes/camera_2d.tscn" id="6_6bp64"]
-
-[sub_resource type="Curve2D" id="Curve2D_344ge"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -74, -40, 0, 0, 0, 0, 70, -40, 0, 0, 0, 0, 70, 40, 0, 0, 0, 0, -74, 40, 0, 0, 0, 0, -74, -40)
-}
-point_count = 5
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_21xkr")
-shadow_scene = ExtResource("4_jjvhh")
+
+[node name="FireCat" parent="." instance=ExtResource("2_bo1nx")]
+
+[node name="YarnCat" parent="." instance=ExtResource("3_8gbba")]
+position = Vector2(50, 16)
 
 [node name="Torch" parent="." instance=ExtResource("5_21xkr")]
 
-[node name="FireCat" parent="." instance=ExtResource("2_bo1nx")]
-position = Vector2(27, -9)
-
-[node name="Shadow" parent="." instance=ExtResource("4_jjvhh")]
-position = Vector2(-14, 0)
-
-[node name="YarnCat" parent="." instance=ExtResource("3_8gbba")]
-position = Vector2(27, 10)
-
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-[node name="Camera2D" parent="." node_paths=PackedStringArray("yarn_cat", "fire_cat") instance=ExtResource("5_6bp64")]
-position = Vector2(17, 0)
-yarn_cat = NodePath("../YarnCat")
-fire_cat = NodePath("../FireCat")
-
-[node name="DirectionArrowFire" type="Sprite2D" parent="Camera2D" node_paths=PackedStringArray("arrow", "fire_cat", "arrow_sprite")]
-modulate = Color(0.99983, 0.294015, 0.231317, 1)
-texture = ExtResource("7_344ge")
-script = ExtResource("7_ynf5e")
-arrow = NodePath(".")
-fire_cat = NodePath("../../FireCat")
-arrow_sprite = NodePath(".")
-
-[node name="DirectionArrowYarn" type="Sprite2D" parent="Camera2D" node_paths=PackedStringArray("arrow", "yarn_cat", "arrow_sprite")]
-modulate = Color(7.79718e-06, 0.82372, 0.758262, 1)
-texture = ExtResource("7_344ge")
-script = ExtResource("7_6bp64")
-arrow = NodePath(".")
-yarn_cat = NodePath("../../YarnCat")
-arrow_sprite = NodePath(".")
-=======
-[node name="Camera2D" parent="." node_paths=PackedStringArray("yarn_cat", "fire_cat") instance=ExtResource("6_6bp64")]
-position = Vector2(18, 0)
-yarn_cat = NodePath("../YarnCat")
-fire_cat = NodePath("../FireCat")
-
-=======
-[node name="Camera2D" parent="." node_paths=PackedStringArray("yarn_cat", "fire_cat") instance=ExtResource("6_6bp64")]
-position = Vector2(18, 0)
-yarn_cat = NodePath("../YarnCat")
-fire_cat = NodePath("../FireCat")
-
->>>>>>> Stashed changes
-[node name="ShadowPath2D" type="Path2D" parent="Camera2D"]
-curve = SubResource("Curve2D_344ge")
-
-[node name="ShadowSpawn" type="PathFollow2D" parent="Camera2D/ShadowPath2D"]
-position = Vector2(-74, -40)
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("yarn_cat", "fire_cat")]
+zoom = Vector2(9, 9)
+script = ExtResource("2_kry3j")
+yarn_cat = NodePath("../FireCat")
+fire_cat = NodePath("../YarnCat")
 
 [node name="ShadowSpawnTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 4.0
 one_shot = true
-
-[connection signal="timeout" from="ShadowSpawnTimer" to="." method="_on_shadow_spawn_timer_timeout"]
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
