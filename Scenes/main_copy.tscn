@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dih7tvnbb7sd4"]
+[gd_scene load_steps=7 format=3 uid="uid://bff25pcs5yd7c"]
 
 [ext_resource type="Script" uid="uid://bcrdf5jxhxnun" path="res://Scripts/main.gd" id="1_4etpg"]
 [ext_resource type="PackedScene" uid="uid://clawv8kask8pi" path="res://Scenes/shadow.tscn" id="2_hafee"]
 [ext_resource type="PackedScene" uid="uid://r7jxd36vluqq" path="res://Scenes/fire_cat.tscn" id="3_plt11"]
 [ext_resource type="PackedScene" uid="uid://2t5bc1akjdes" path="res://Scenes/yarn_cat.tscn" id="4_wpsug"]
-[ext_resource type="PackedScene" uid="uid://bm0xq7m4hiuve" path="res://Scenes/torch.tscn" id="5_wb8jq"]
+[ext_resource type="PackedScene" uid="uid://bm0xq7m4hiuve" path="res://Scenes/Torch.tscn" id="5_wb8jq"]
 [ext_resource type="Script" uid="uid://cha0dey3px8f1" path="res://Scripts/CameraController.gd" id="6_apqya"]
 
 [node name="Main" type="Node2D"]
