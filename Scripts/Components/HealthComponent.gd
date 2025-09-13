@@ -12,8 +12,9 @@ func _ready():
 
 
 func heal(amount: int):
-	if current_health > max_health:
+	if current_health >= max_health:
 		current_health = max_health
+		
 	elif Globals.torch_flames > 0:
 		current_health += amount + 1
 		Globals.fire_cat_health = current_health

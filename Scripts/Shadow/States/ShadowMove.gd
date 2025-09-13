@@ -24,7 +24,7 @@ func physics_update(_delta):
 	var angle = shadow_character_body.get_angle_to(yarn_cat.transform.origin)
 
 	var max_range := 0.0
-	if Globals.torch_holder == "YarnCat":
+	if Globals.torch_holder == "YarnCat" and Globals.torch_flames > 0:
 		max_range = 40
 
 	var direction: Vector2

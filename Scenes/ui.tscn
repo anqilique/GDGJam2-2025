@@ -65,6 +65,7 @@ rounded = true
 show_percentage = false
 
 [node name="TorchFlames" type="ProgressBar" parent="HealthBars"]
+layout_mode = 0
 offset_left = 320.0
 offset_top = 16.0
 offset_right = 832.0
