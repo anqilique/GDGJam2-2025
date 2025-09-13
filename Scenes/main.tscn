@@ -1,37 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdk4cbpxqy2j5"]
+[gd_scene load_steps=4 format=3 uid="uid://cu7k1o7cvtfnr"]
 
-[ext_resource type="Script" uid="uid://bcrdf5jxhxnun" path="res://Scripts/main.gd" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://r7jxd36vluqq" path="res://Scenes/fire_cat.tscn" id="2_bo1nx"]
-[ext_resource type="Script" uid="uid://cha0dey3px8f1" path="res://Scripts/CameraController.gd" id="2_kry3j"]
 [ext_resource type="PackedScene" uid="uid://2t5bc1akjdes" path="res://Scenes/yarn_cat.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://clawv8kask8pi" path="res://Scenes/shadow.tscn" id="4_jjvhh"]
-<<<<<<< HEAD
-[ext_resource type="PackedScene" uid="uid://bm0xq7m4hiuve" path="res://Scenes/torch.tscn" id="5_21xkr"]
-[ext_resource type="PackedScene" uid="uid://bdtv1ln0t1j8i" path="res://Scenes/door.tscn" id="7_6bp64"]
-=======
-[ext_resource type="PackedScene" uid="uid://bm0xq7m4hiuve" path="res://Scenes/Torch.tscn" id="5_21xkr"]
->>>>>>> 2bc65df56aaa9b06f6865842abd714b596ee5fcd
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_jjgbg")
-
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("yarn_cat", "fire_cat")]
-zoom = Vector2(10, 10)
-script = ExtResource("2_kry3j")
-yarn_cat = NodePath("../YarnCat")
-fire_cat = NodePath("../FireCat")
-
-[node name="Door" parent="." instance=ExtResource("7_6bp64")]
-position = Vector2(131, 1)
 
 [node name="FireCat" parent="." instance=ExtResource("2_bo1nx")]
-position = Vector2(22, -6)
-script = null
-
-[node name="YarnCat" parent="." instance=ExtResource("3_8gbba")]
-position = Vector2(23, 12)
 
 [node name="Shadow" parent="." instance=ExtResource("4_jjvhh")]
-position = Vector2(-22, -1)
 
-[node name="Torch" parent="." instance=ExtResource("5_21xkr")]
+[node name="YarnCat" parent="." instance=ExtResource("3_8gbba")]
