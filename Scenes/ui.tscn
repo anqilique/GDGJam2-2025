@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dce7lpdpevvk5"]
+[gd_scene load_steps=6 format=3 uid="uid://kmmcioaaast4"]
 
 [ext_resource type="Theme" uid="uid://dljqrqoj41xf7" path="res://Assets/Resources/theme.tres" id="1_jxero"]
-[ext_resource type="Script" uid="uid://cj0dd6gveslkt" path="res://Scripts/UI.gd" id="1_qdvrb"]
+[ext_resource type="Script" path="res://Scripts/UI.gd" id="1_qdvrb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdvrb"]
 bg_color = Color(0.952941, 0.254902, 0.286275, 1)
@@ -30,6 +30,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="FCatHealth" type="ProgressBar" parent="HealthBars"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 144.0
@@ -42,6 +43,7 @@ rounded = true
 show_percentage = false
 
 [node name="YCatHealth" type="ProgressBar" parent="HealthBars"]
+layout_mode = 0
 offset_left = 1136.0
 offset_top = 16.0
 offset_right = 1264.0

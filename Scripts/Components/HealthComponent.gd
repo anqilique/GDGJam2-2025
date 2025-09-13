@@ -16,7 +16,7 @@ func heal(amount: int):
 	if current_health > max_health:
 		current_health = max_health
 
-	emit_signal("health_changed", current_health)
+	Globals.fire_cat_health = current_health
 
 
 func die():
