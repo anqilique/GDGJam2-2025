@@ -1,5 +1,9 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [gd_scene load_steps=9 format=3 uid="uid://cdk4cbpxqy2j5"]
+=======
+[gd_scene load_steps=8 format=3 uid="uid://cu7k1o7cvtfnr"]
+>>>>>>> Stashed changes
 =======
 [gd_scene load_steps=8 format=3 uid="uid://cu7k1o7cvtfnr"]
 >>>>>>> Stashed changes
@@ -23,6 +27,9 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -74, -40, 0, 0, 0, 0, 70, -40, 0, 0, 0, 0, 70, 40, 0, 0, 0, 0, -74, 40, 0, 0, 0, 0, -74, -40)
 }
 point_count = 5
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 [node name="Main" type="Node2D"]
@@ -40,6 +47,7 @@ position = Vector2(-14, 0)
 [node name="YarnCat" parent="." instance=ExtResource("3_8gbba")]
 position = Vector2(27, 10)
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 [node name="Camera2D" parent="." node_paths=PackedStringArray("yarn_cat", "fire_cat") instance=ExtResource("5_6bp64")]
 position = Vector2(17, 0)
@@ -67,6 +75,13 @@ position = Vector2(18, 0)
 yarn_cat = NodePath("../YarnCat")
 fire_cat = NodePath("../FireCat")
 
+=======
+[node name="Camera2D" parent="." node_paths=PackedStringArray("yarn_cat", "fire_cat") instance=ExtResource("6_6bp64")]
+position = Vector2(18, 0)
+yarn_cat = NodePath("../YarnCat")
+fire_cat = NodePath("../FireCat")
+
+>>>>>>> Stashed changes
 [node name="ShadowPath2D" type="Path2D" parent="Camera2D"]
 curve = SubResource("Curve2D_344ge")
 
@@ -78,4 +93,7 @@ wait_time = 2.0
 one_shot = true
 
 [connection signal="timeout" from="ShadowSpawnTimer" to="." method="_on_shadow_spawn_timer_timeout"]
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
