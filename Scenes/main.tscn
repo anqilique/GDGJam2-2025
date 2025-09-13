@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdk4cbpxqy2j5"]
+[gd_scene load_steps=6 format=3 uid="uid://cu7k1o7cvtfnr"]
 
 [ext_resource type="PackedScene" uid="uid://r7jxd36vluqq" path="res://Scenes/fire_cat.tscn" id="2_bo1nx"]
 [ext_resource type="Script" uid="uid://cha0dey3px8f1" path="res://Scripts/CameraController.gd" id="2_kry3j"]
 [ext_resource type="PackedScene" uid="uid://2t5bc1akjdes" path="res://Scenes/yarn_cat.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://clawv8kask8pi" path="res://Scenes/shadow.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://bm0xq7m4hiuve" path="res://Scenes/torch.tscn" id="5_21xkr"]
 
 [node name="Main" type="Node2D"]
+
+[node name="Torch" parent="." instance=ExtResource("5_21xkr")]
 
 [node name="FireCat" parent="." instance=ExtResource("2_bo1nx")]
 position = Vector2(27, -9)
@@ -16,7 +19,9 @@ position = Vector2(-14, 0)
 [node name="YarnCat" parent="." instance=ExtResource("3_8gbba")]
 position = Vector2(27, 10)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("yarn_cat", "fire_cat")]
 position = Vector2(18, 0)
 zoom = Vector2(9, 9)
 script = ExtResource("2_kry3j")
+yarn_cat = NodePath("../YarnCat")
+fire_cat = NodePath("../FireCat")

@@ -27,10 +27,12 @@ radius = 23.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_ebo8h"]
 radius = 7.0
 
-[node name="YarnCat" type="CharacterBody2D" groups=["YarnCat"]]
+[node name="YarnCat" type="CharacterBody2D" node_paths=PackedStringArray("pass_area", "pass_area_sprite") groups=["YarnCat"]]
 process_mode = 3
 script = ExtResource("1_h6rup")
 yarn_piece = ExtResource("2_p0tp3")
+pass_area = NodePath("PassArea2D")
+pass_area_sprite = NodePath("PassArea2D/Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.0924, 0.60326, 0.84, 1)
