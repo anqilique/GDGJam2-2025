@@ -5,6 +5,8 @@ var fire_cat
 
 
 func _ready() -> void:
+	Globals.reset_variables()
+	
 	fire_cat = get_tree().get_first_node_in_group("FireCat")
 
 
