@@ -14,8 +14,6 @@ func enter():
 	state_machine.on_child_transition(state_machine.current_state, "FCatIdle")
 
 
-
-
 func exit():
 	pass
 

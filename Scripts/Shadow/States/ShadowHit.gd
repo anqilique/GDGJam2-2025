@@ -11,6 +11,7 @@ func enter():
 	# when anim finished go back to moving:
 	state_machine.on_child_transition(state_machine.current_state, "ShadowMove")
 
+
 func exit():
 	pass
 

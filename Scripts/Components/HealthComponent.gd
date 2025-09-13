@@ -13,6 +13,9 @@ func _ready():
 
 func heal(amount: int):
 	current_health += amount
+	if current_health > max_health:
+		current_health = max_health
+
 	emit_signal("health_changed", current_health)
 
 
