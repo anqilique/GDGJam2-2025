@@ -16,8 +16,6 @@ func check_health_bars():
 				compare_global = Globals.fire_cat_health
 			"YCatHealth":
 				compare_global = Globals.yarn_cat_health
-			"TorchFlames":
-				compare_global = Globals.torch_flames
 		
 		if bar.value != compare_global:
 			to_update.append(bar.name)
@@ -35,8 +33,6 @@ func update_bars(bars_list):
 				$HealthBars/FCatHealth.value = Globals.fire_cat_health
 			"YCatHealth":
 				$HealthBars/YCatHealth.value = Globals.yarn_cat_health
-			"TorchFlames":
-				$HealthBars/TorchFlames.value = Globals.torch_flames
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

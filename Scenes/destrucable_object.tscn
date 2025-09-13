@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbv27nwmnaj6t"]
+
+[ext_resource type="Script" uid="uid://mj3ile36o7vv" path="res://Scripts/DestructableObject.gd" id="1_eqx1i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqx1i"]
+size = Vector2(10, 10)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_eqx1i"]
+
+[node name="DestrucableObject" type="CharacterBody2D"]
+script = ExtResource("1_eqx1i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_eqx1i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = SubResource("PlaceholderTexture2D_eqx1i")

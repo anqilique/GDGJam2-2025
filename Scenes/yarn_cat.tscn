@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://d2wxvba0tns6f" path="res://Scripts/YarnCat/States/YCatDeath.gd" id="5_63v1j"]
 [ext_resource type="Script" uid="uid://cr0mp0gn4lrw" path="res://Scripts/YarnCat/States/YCatHit.gd" id="6_jrn06"]
 [ext_resource type="Texture2D" uid="uid://elledndoyhr2" path="res://Assets/Art/circle.png" id="11_ebo8h"]
-[ext_resource type="Script" path="res://Scripts/ChangeYarnCatGlobal.gd" id="11_lj1v2"]
+[ext_resource type="Script" uid="uid://bejql71cm7lri" path="res://Scripts/ChangeYarnCatGlobal.gd" id="11_lj1v2"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8gbba"]
 size = Vector2(10, 10)
