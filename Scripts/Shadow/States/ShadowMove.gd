@@ -9,7 +9,7 @@ var players
 var closest_player: Transform2D
 
 func enter():
-	players = get_tree().get_nodes_in_group("YarnCat")
+	players = (get_tree().get_nodes_in_group("YarnCat"))
 	closest_player = find_closest_player()
 
 
@@ -30,30 +30,20 @@ func physics_update(_delta):
 	if Globals.torch_holder == "YarnCat":
 		max_range = 40
 
+	var direction: Vector2
+	direction.x = cos(angle)
+	direction.y = sin(angle)
+
+	var target_velocity: Vector2
+	target_velocity.x = direction.x * movement_speed
+	target_velocity.y = direction.y * movement_speed
 
 	if shadow_node.transform.origin.distance_to(closest_player.origin) >= max_range:
-		var direction: Vector2
-		direction.x = cos(angle)
-		direction.y = sin(angle)
-
-		var target_velocity: Vector2
-		target_velocity.x = direction.x * movement_speed
-		target_velocity.y = direction.y * movement_speed
-
 		shadow_character_body.velocity = target_velocity
-		shadow_character_body.move_and_slide()
-
 	else:
-		var direction: Vector2
-		direction.x = cos(angle)
-		direction.y = sin(angle)
-
-		var target_velocity: Vector2
-		target_velocity.x = direction.x * movement_speed
-		target_velocity.y = direction.y * movement_speed
-
 		shadow_character_body.velocity = -target_velocity
-		shadow_character_body.move_and_slide()
+
+	shadow_character_body.move_and_slide()
 
 func find_closest_player():
 	var new_closest_player = players[0]
