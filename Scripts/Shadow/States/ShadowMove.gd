@@ -31,8 +31,6 @@ func physics_update(_delta):
 		max_range = 40
 
 
-	print(shadow_node.transform.origin.distance_to(closest_player.origin))
-
 	if shadow_node.transform.origin.distance_to(closest_player.origin) >= max_range:
 		var direction: Vector2
 		direction.x = cos(angle)
