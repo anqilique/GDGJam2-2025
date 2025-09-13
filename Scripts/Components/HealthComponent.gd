@@ -43,16 +43,11 @@ func take_damage(damage: int):
 
 	current_health -= damage
 
-	# Update health bar if it exists.
-	if get_parent().has_node("Healthbar"):
-		var healthbar = get_parent().get_node("Healthbar")
-		healthbar.health = current_health
-
-	"""We will probably use global variables later on."""
-	# If player, update the global variables as well.
-	#if get_parent().name == "Player":
-		#Globals.player_health = health
-		#emit_signal("health_changed", health)
+	match get_parent().get_groups()[0]:
+		"FireCat":
+			Globals.fire_cat_health -= 1
+		"YarnCat":
+			Globals.yarn_cat_health -= 1
 	
 	if current_health <= 0:
 		die()
