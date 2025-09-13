@@ -2,10 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bcrdf5jxhxnun" path="res://Scripts/main.gd" id="1_21xkr"]
 [ext_resource type="PackedScene" uid="uid://r7jxd36vluqq" path="res://Scenes/fire_cat.tscn" id="2_bo1nx"]
-[ext_resource type="Script" uid="uid://cha0dey3px8f1" path="res://Scripts/CameraController.gd" id="2_kry3j"]
 [ext_resource type="PackedScene" uid="uid://2t5bc1akjdes" path="res://Scenes/yarn_cat.tscn" id="3_8gbba"]
-[ext_resource type="PackedScene" uid="uid://clawv8kask8pi" path="res://Scenes/shadow.tscn" id="4_jjvhh"]
-[ext_resource type="PackedScene" uid="uid://bm0xq7m4hiuve" path="res://Scenes/torch.tscn" id="5_21xkr"]
+[ext_resource type="PackedScene" uid="uid://bm0xq7m4hiuve" path="res://Scenes/Torch.tscn" id="5_21xkr"]
+[ext_resource type="PackedScene" uid="uid://b0wamciy0efu" path="res://Scenes/camera_2d.tscn" id="5_kry3j"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_21xkr")
@@ -18,11 +17,7 @@ position = Vector2(50, 16)
 
 [node name="Torch" parent="." instance=ExtResource("5_21xkr")]
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("yarn_cat", "fire_cat")]
-zoom = Vector2(9, 9)
-script = ExtResource("2_kry3j")
-yarn_cat = NodePath("../FireCat")
-fire_cat = NodePath("../YarnCat")
+[node name="Camera2D" parent="." instance=ExtResource("5_kry3j")]
 
 [node name="ShadowSpawnTimer" type="Timer" parent="."]
 wait_time = 4.0

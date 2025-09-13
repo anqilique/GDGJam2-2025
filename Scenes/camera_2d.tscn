@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0wamciy0efu"]
+
+[ext_resource type="Script" uid="uid://cha0dey3px8f1" path="res://Scripts/CameraController.gd" id="1_7gs4n"]
+[ext_resource type="Texture2D" uid="uid://ebnov8rdkl3i" path="res://Assets/Art/Sprite-0001.png" id="2_hrk3d"]
+[ext_resource type="Script" uid="uid://dw6mcecg27wtv" path="res://Scripts/Arrows/DirectionArrowYarn.gd" id="3_jew8w"]
+[ext_resource type="Script" uid="uid://dxkwm0vmbd0rt" path="res://Scripts/Arrows/DirectionArrowFire.gd" id="4_n4vac"]
+
+[node name="Camera2D" type="Camera2D"]
+zoom = Vector2(9, 9)
+script = ExtResource("1_7gs4n")
+
+[node name="YarnDirectionArrow" type="Sprite2D" parent="." node_paths=PackedStringArray("arrow", "arrow_sprite")]
+texture = ExtResource("2_hrk3d")
+script = ExtResource("3_jew8w")
+arrow = NodePath(".")
+arrow_sprite = NodePath(".")
+
+[node name="FireDirectionArrow" type="Sprite2D" parent="." node_paths=PackedStringArray("arrow", "arrow_sprite")]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("2_hrk3d")
+script = ExtResource("4_n4vac")
+arrow = NodePath(".")
+arrow_sprite = NodePath(".")
