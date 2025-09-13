@@ -46,9 +46,10 @@ shape = SubResource("CapsuleShape2D_s1j64")
 script = ExtResource("1_wjdoq")
 initial_state = NodePath("ShadowMove")
 
-[node name="ShadowMove" type="Node" parent="StateMachine" node_paths=PackedStringArray("shadow")]
+[node name="ShadowMove" type="Node" parent="StateMachine" node_paths=PackedStringArray("shadow_character_body", "shadow_node")]
 script = ExtResource("4_bhi63")
-shadow = NodePath("../..")
+shadow_character_body = NodePath("../..")
+shadow_node = NodePath("../..")
 movement_speed = 10.0
 metadata/_custom_type_script = "uid://c0rmkgfdvs7y5"
 
