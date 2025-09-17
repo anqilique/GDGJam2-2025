@@ -5,6 +5,7 @@ var cat
 
 func enter():
 	cat = get_tree().get_first_node_in_group("FireCat")
+	
 	Globals.loss_reason = "FCatDied"
 	get_tree().change_scene_to_file("res://Scenes/loss_screen.tscn")
 

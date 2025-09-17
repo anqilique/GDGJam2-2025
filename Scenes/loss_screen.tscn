@@ -19,14 +19,23 @@ offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 0.784314)
 
-[node name="Label" type="Label" parent="CanvasLayer/ColorRect"]
+[node name="Header" type="Label" parent="CanvasLayer/ColorRect"]
 layout_mode = 0
 offset_left = 192.0
-offset_top = 224.0
+offset_top = 72.0
 offset_right = 960.0
-offset_bottom = 361.0
+offset_bottom = 209.0
 theme_override_font_sizes/font_size = 100
-text = "HAHA! LOSER!"
+text = "ESCAPE FAILED"
+horizontal_alignment = 1
+
+[node name="LoseReason" type="Label" parent="CanvasLayer/ColorRect"]
+offset_left = 192.0
+offset_top = 226.0
+offset_right = 960.0
+offset_bottom = 363.0
+theme_override_font_sizes/font_size = 32
+text = "Insert funny little lose reason here..."
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="CanvasLayer"]
