@@ -11,6 +11,8 @@ var yarn_cat_health = 9
 var fire_cat_health = 9
 var torch_flames = 10
 
+var loss_reason = ""
+
 
 func reset_variables():
 	torch_holder = "YarnCat"  # For determining who is holding the torch.
@@ -21,3 +23,5 @@ func reset_variables():
 	yarn_cat_health = 9
 	fire_cat_health = 9
 	torch_flames = 10
+	
+	loss_reason = ""

@@ -76,5 +76,10 @@ metadata/_custom_type_script = "uid://cjee6ug4ipcnb"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_pt8rj")
 
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
 [connection signal="area_entered" from="Hitbox Area2D" to="Hitbox Area2D" method="_on_area_entered"]
 [connection signal="area_exited" from="Hitbox Area2D" to="Hitbox Area2D" method="_on_area_exited"]
+[connection signal="timeout" from="AttackTimer" to="StateMachine/ShadowAttack" method="_on_attack_timer_timeout"]

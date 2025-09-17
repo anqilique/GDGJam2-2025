@@ -50,6 +50,7 @@ func _physics_process(_delta):
 	
 	burn_range = $BurnArea2D.get_overlapping_bodies()
 	if fire_cat in burn_range:
+		Globals.loss_reason = "YCatBurned"
 		get_tree().change_scene_to_file("res://Scenes/loss_screen.tscn")
 
 
