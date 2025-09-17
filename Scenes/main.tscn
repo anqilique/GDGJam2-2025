@@ -30,6 +30,7 @@ autostart = true
 position = Vector2(22, 4)
 
 [node name="UI" parent="." instance=ExtResource("7_6bp64")]
+visible = false
 
 [node name="Map" parent="." instance=ExtResource("8_344ge")]
 
