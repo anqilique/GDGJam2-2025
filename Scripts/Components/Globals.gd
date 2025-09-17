@@ -13,7 +13,7 @@ var torch_flames = 10
 
 var loss_reason = ""
 
-var alight_time = 1  # Time taken for things to set on fire
+var alight_time = 0.5  # Time taken for things to set on fire
 
 
 func reset_variables():
