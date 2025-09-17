@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://b74smuspeiav4"]
 
-[ext_resource type="Script" uid="uid://c15kuir52i30e" path="res://Scripts/Win_screen.gd" id="1_a00f1"]
+[ext_resource type="Script" uid="uid://c15kuir52i30e" path="res://Scripts/WinScreen.gd" id="1_a00f1"]
 [ext_resource type="Theme" uid="uid://dljqrqoj41xf7" path="res://Assets/Resources/theme.tres" id="2_awi1s"]
 
-[node name="Winner" type="Control"]
+[node name="WinScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

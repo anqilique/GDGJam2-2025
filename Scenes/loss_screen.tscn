@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c18nfyf1mkn7g" path="res://Scripts/LossScreen.gd" id="1_0dmjc"]
 [ext_resource type="Theme" uid="uid://dljqrqoj41xf7" path="res://Assets/Resources/theme.tres" id="2_jhgxs"]
 
-[node name="loser" type="Control"]
+[node name="LossScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
