@@ -1,3 +1,41 @@
-[gd_scene load_steps=0 format=3 uid="uid://ddaet4ni81qki"]
+[gd_scene load_steps=2 format=3 uid="uid://ddaet4ni81qki"]
+
+[ext_resource type="PackedScene" uid="uid://bdtv1ln0t1j8i" path="res://Scenes/door.tscn" id="1_ci6au"]
 
 [node name="Map" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 18.0
+offset_bottom = 233.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 297.0
+offset_right = 315.0
+offset_bottom = 233.0
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = 3.0
+offset_top = 288.0
+offset_right = 21.0
+offset_bottom = 521.0
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+offset_left = 646.0
+offset_top = 288.0
+offset_right = 664.0
+offset_bottom = 521.0
+
+[node name="ColorRect5" type="ColorRect" parent="."]
+offset_left = 646.0
+offset_top = -2.0
+offset_right = 664.0
+offset_bottom = 231.0
+
+[node name="ColorRect6" type="ColorRect" parent="."]
+offset_left = 301.0
+offset_top = 385.0
+offset_right = 319.0
+offset_bottom = 618.0
+
+[node name="Door" parent="." instance=ExtResource("1_ci6au")]
+position = Vector2(654, 258)
