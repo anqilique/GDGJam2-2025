@@ -4,38 +4,45 @@
 
 [node name="Map" type="Node2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="DarkBackground" type="ColorRect" parent="."]
+z_index = -1
+offset_left = -339.0
+offset_top = -215.0
+offset_right = 654.0
+offset_bottom = 466.0
+color = Color(0.103744, 0.103744, 0.103744, 1)
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Environment"]
 offset_right = 18.0
 offset_bottom = 233.0
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="ColorRect2" type="ColorRect" parent="Environment"]
 offset_left = 297.0
 offset_right = 315.0
 offset_bottom = 233.0
 
-[node name="ColorRect3" type="ColorRect" parent="."]
-offset_left = 3.0
-offset_top = 288.0
-offset_right = 21.0
-offset_bottom = 521.0
+[node name="ColorRect3" type="ColorRect" parent="Environment"]
+offset_left = 278.0
+offset_top = -92.0
+offset_right = 296.0
+offset_bottom = 141.0
+rotation = 1.5708
 
-[node name="ColorRect4" type="ColorRect" parent="."]
-offset_left = 646.0
-offset_top = 288.0
-offset_right = 664.0
-offset_bottom = 521.0
-
-[node name="ColorRect5" type="ColorRect" parent="."]
-offset_left = 646.0
-offset_top = -2.0
-offset_right = 664.0
-offset_bottom = 231.0
-
-[node name="ColorRect6" type="ColorRect" parent="."]
-offset_left = 301.0
-offset_top = 385.0
-offset_right = 319.0
-offset_bottom = 618.0
+[node name="ColorRect4" type="ColorRect" parent="Environment"]
+offset_left = 278.0
+offset_top = 324.0
+offset_right = 296.0
+offset_bottom = 557.0
+rotation = 1.5708
 
 [node name="Door" parent="." instance=ExtResource("1_ci6au")]
-position = Vector2(654, 258)
+position = Vector2(157, 258)
+
+[node name="Darkness" type="ColorRect" parent="."]
+offset_left = -339.0
+offset_top = -215.0
+offset_right = 654.0
+offset_bottom = 466.0
+color = Color(0.0156863, 0, 0, 0.847059)

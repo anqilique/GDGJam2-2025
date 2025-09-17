@@ -28,4 +28,4 @@ func _on_shadow_spawn_timer_timeout() -> void:
 
 	shadow.position = shadow_spawn_location
 
-	add_child(shadow)
+	$ShadowsContainer.add_child(shadow)
