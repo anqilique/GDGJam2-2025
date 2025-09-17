@@ -15,11 +15,13 @@ script = ExtResource("1_21xkr")
 shadow_scene = ExtResource("4_jjvhh")
 
 [node name="FireCat" parent="." instance=ExtResource("2_bo1nx")]
+position = Vector2(-19, -9)
 
 [node name="YarnCat" parent="." instance=ExtResource("3_8gbba")]
-position = Vector2(50, 16)
+position = Vector2(63, -9)
 
 [node name="Torch" parent="." instance=ExtResource("5_21xkr")]
+position = Vector2(22, 0)
 
 [node name="ShadowSpawnTimer" type="Timer" parent="."]
 wait_time = 4.0

@@ -15,6 +15,7 @@ var passing_range
 
 func _ready() -> void:
 	fire_cat = get_tree().get_first_node_in_group("FireCat")
+	$BurnTimer.wait_time = Globals.alight_time
 
 
 func _physics_process(_delta):
@@ -50,9 +51,18 @@ func _physics_process(_delta):
 	
 	burn_range = $BurnArea2D.get_overlapping_bodies()
 	if fire_cat in burn_range:
-		Globals.loss_reason = "YCatBurned"
-		get_tree().change_scene_to_file("res://Scenes/loss_screen.tscn")
+		if $BurnTimer.is_stopped():
+			$BurnTimer.start()
+	else:
+		if not $BurnTimer.is_stopped():
+			$BurnTimer.stop()
+			$BurnTimer.wait_time = Globals.alight_time
 
 
 func _on_can_drop_timer_timeout() -> void:
 	can_drop = true
+
+
+func _on_burn_timer_timeout() -> void:
+	Globals.loss_reason = "YCatBurned"
+	get_tree().change_scene_to_file("res://Scenes/loss_screen.tscn")

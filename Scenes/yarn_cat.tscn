@@ -80,6 +80,10 @@ position = Vector2(-5, 3)
 wait_time = 2.0
 one_shot = true
 
+[node name="BurnTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [node name="PassArea2D" type="Area2D" parent="."]
 collision_layer = 0
 
@@ -102,5 +106,6 @@ rect = Rect2(-5, -5, 10, 10)
 script = ExtResource("11_lj1v2")
 
 [connection signal="timeout" from="CanDropTimer" to="." method="_on_can_drop_timer_timeout"]
+[connection signal="timeout" from="BurnTimer" to="." method="_on_burn_timer_timeout"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="VisibleOnScreenNotifier2D" method="_on_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="VisibleOnScreenNotifier2D" method="_on_screen_exited"]
