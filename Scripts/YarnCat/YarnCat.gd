@@ -22,8 +22,7 @@ func _physics_process(_delta):
 		if Input.is_action_just_pressed("yarn_cat_drop_yarn") and can_drop:
 			var new_yarn = yarn_piece.instantiate()
 			
-			new_yarn.position.x = randf_range(global_position.x - 10, global_position.x + 10)
-			new_yarn.position.y = randf_range(global_position.y - 10, global_position.y + 10)
+			new_yarn.position = self.position
 			
 			add_sibling(new_yarn)
 			
