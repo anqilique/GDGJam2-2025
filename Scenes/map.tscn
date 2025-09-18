@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ddaet4ni81qki"]
 
-[ext_resource type="PackedScene" uid="uid://bdtv1ln0t1j8i" path="res://Scenes/door.tscn" id="1_ci6au"]
+[ext_resource type="PackedScene" path="res://Scenes/door.tscn" id="1_ci6au"]
 
 [node name="Map" type="Node2D"]
 
@@ -41,6 +41,7 @@ rotation = 1.5708
 position = Vector2(157, 258)
 
 [node name="Darkness" type="ColorRect" parent="."]
+visible = false
 offset_left = -339.0
 offset_top = -215.0
 offset_right = 654.0

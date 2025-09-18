@@ -1,11 +1,10 @@
 extends CharacterBody2D
 
-var health := 4
-var current_burn_time : int
+var current_burn_time : float
 
 var is_burning := false
 
-func _process(delta):
+func _physics_process(delta):
 	if not is_burning:
 		return
 

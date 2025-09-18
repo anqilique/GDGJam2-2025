@@ -11,5 +11,10 @@ func _process(delta: float) -> void:
 	pass
 
 
+func _on_area_entered(area : Area2D):
+	if area.get_parent().get_groups().has("Flammable"):
+		area.get_parent().start_burn(1)
+
+
 func _on_timer_timeout() -> void:
 	queue_free()
