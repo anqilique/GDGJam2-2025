@@ -15,5 +15,7 @@ func _physics_process(delta):
 
 
 func start_burn(seconds: int):
+	await get_tree().create_timer(seconds).timeout
+	# spawn like flame sprite or smth
 	is_burning = true
 	current_burn_time = seconds
