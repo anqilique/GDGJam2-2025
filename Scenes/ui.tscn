@@ -55,7 +55,7 @@ layout_mode = 0
 offset_top = 32.0
 offset_right = 40.0
 offset_bottom = 55.0
-text = "Flame Cat"
+text = "Flame Cat - WASD"
 
 [node name="YCatHealth" type="ProgressBar" parent="HealthBars"]
 layout_mode = 0
@@ -75,12 +75,12 @@ show_percentage = false
 [node name="Label" type="Label" parent="HealthBars/YCatHealth"]
 modulate = Color(0.30980393, 0.5254902, 0.9764706, 1)
 layout_mode = 0
-offset_left = 77.0
+offset_left = 148.0
 offset_top = 32.0
-offset_right = 154.0
+offset_right = 295.0
 offset_bottom = 55.0
 scale = Vector2(-1, 1)
-text = "Yarn Cat"
+text = "ARROWS - Yarn Cat"
 horizontal_alignment = 2
 
 [node name="Label2" type="Label" parent="HealthBars/YCatHealth"]
@@ -113,5 +113,5 @@ layout_mode = 0
 offset_top = 32.0
 offset_right = 512.0
 offset_bottom = 55.0
-text = "Remaining Torch Fire"
+text = "Remaining Torch Fire --- [SPACE] to Pass the Torch"
 horizontal_alignment = 1

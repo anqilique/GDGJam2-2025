@@ -23,14 +23,14 @@ autostart = true
 visible = false
 
 [node name="FireCat" parent="." instance=ExtResource("2_bo1nx")]
-position = Vector2(118, -9)
+position = Vector2(-39, -103)
 
 [node name="YarnCat" parent="." instance=ExtResource("3_8gbba")]
-position = Vector2(200, -9)
+position = Vector2(51, -105)
 
 [node name="Torch" parent="." instance=ExtResource("5_21xkr")]
 z_index = 1
-position = Vector2(159, 0)
+position = Vector2(57, -73)
 
 [node name="ShadowsContainer" type="Node2D" parent="."]
 
@@ -38,7 +38,7 @@ position = Vector2(159, 0)
 
 [node name="Camera2D" parent="." instance=ExtResource("5_kry3j")]
 z_index = 2
-position = Vector2(164, -162)
+position = Vector2(-2, -482)
 zoom = Vector2(3, 3)
 
 [connection signal="timeout" from="ShadowSpawnTimer" to="." method="_on_shadow_spawn_timer_timeout"]

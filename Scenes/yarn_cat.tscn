@@ -59,6 +59,7 @@ pass_area_sprite = NodePath("PassArea2D/Sprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
+scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_efeje")
 frame = 1
 frame_progress = 0.8095545

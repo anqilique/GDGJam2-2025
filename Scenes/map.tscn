@@ -231,13 +231,11 @@ region_enabled = true
 region_rect = Rect2(35, 102, 35, 346)
 
 [node name="DarknessNode" type="DirectionalLight2D" parent="."]
-visible = false
 color = Color(0.07058824, 0, 0, 0.89411765)
 blend_mode = 2
 range_z_max = 3
 
 [node name="SearchSpotContainer" type="Node2D" parent="."]
-visible = false
 script = ExtResource("4_myvm1")
 
 [node name="TopLeft" type="Node" parent="SearchSpotContainer"]
