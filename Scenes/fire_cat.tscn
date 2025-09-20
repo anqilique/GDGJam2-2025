@@ -47,6 +47,7 @@ script = ExtResource("1_l7j73")
 health_component = NodePath("HealthComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_tky5c")
 frame = 1
 frame_progress = 0.8696454

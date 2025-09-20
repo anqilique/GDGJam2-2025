@@ -44,6 +44,7 @@ position = Vector2(1.9073486e-06, -3.000001)
 scale = Vector2(4.976562, 4.976562)
 color = Color(1, 0.83137256, 0.65882355, 0.62352943)
 energy = 2.0
+shadow_enabled = true
 texture = SubResource("GradientTexture2D_pqci0")
 texture_scale = 0.5
 
