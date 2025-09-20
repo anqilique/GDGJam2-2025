@@ -25,10 +25,10 @@ func search(location):
 			Globals.key_found = true
 			$SearchLabel.text = "Key has been found!"
 	else:
-		var find_kindling = randi_range(1, 3)
+		var find_kindling = randi_range(1, 4)
 		
-		if find_kindling <= 2:
-			Globals.torch_flames += 1
+		if find_kindling <= 3:
+			Globals.torch_flames += find_kindling
 			$SearchLabel.text = "Found some kindling!"
 		else:
 			$SearchLabel.text = "Nothing here!\nTry again?"
