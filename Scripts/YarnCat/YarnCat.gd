@@ -19,6 +19,12 @@ func _ready() -> void:
 
 
 func _physics_process(_delta):
+	if Globals.torch_holder != "YarnCat":
+		$AnimatedSprite2D.play("default")
+	else:
+		$AnimatedSprite2D.stop()
+		$AnimatedSprite2D.frame = 0
+	
 	if get_node("StateMachine").current_state.name != "YCatDeath":
 		if Input.is_action_just_pressed("yarn_cat_drop_yarn") and can_drop:
 			var new_yarn = yarn_piece.instantiate()

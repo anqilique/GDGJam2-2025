@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://2t5bc1akjdes"]
+[gd_scene load_steps=20 format=3 uid="uid://2t5bc1akjdes"]
 
 [ext_resource type="Script" uid="uid://ymhfxshwidbw" path="res://Scripts/YarnCat/YarnCat.gd" id="1_h6rup"]
 [ext_resource type="Script" uid="uid://cjson8dx74ue8" path="res://Scripts/Components/StateMachine.gd" id="2_hfd8b"]
@@ -6,27 +6,49 @@
 [ext_resource type="PackedScene" uid="uid://xbpb81mvi081" path="res://Scenes/yarn_piece.tscn" id="2_p0tp3"]
 [ext_resource type="Script" uid="uid://bk5cveh720lnc" path="res://Scripts/YarnCat/States/YCatIdle.gd" id="3_308qq"]
 [ext_resource type="Script" uid="uid://cwe0d5fdy0dxd" path="res://Scripts/YarnCat/States/YCatMove.gd" id="3_gm3cx"]
+[ext_resource type="Texture2D" uid="uid://o01u6vh45tfx" path="res://Assets/Art/ycat.png" id="3_lj1v2"]
 [ext_resource type="PackedScene" uid="uid://4j24cfujirgk" path="res://Scenes/Components/HurtboxComponent.tscn" id="3_p0tp3"]
 [ext_resource type="Script" uid="uid://d2wxvba0tns6f" path="res://Scripts/YarnCat/States/YCatDeath.gd" id="5_63v1j"]
 [ext_resource type="Script" uid="uid://cr0mp0gn4lrw" path="res://Scripts/YarnCat/States/YCatHit.gd" id="6_jrn06"]
 [ext_resource type="Texture2D" uid="uid://elledndoyhr2" path="res://Assets/Art/circle.png" id="11_ebo8h"]
 [ext_resource type="Script" path="res://Scripts/ChangeYarnCatGlobal.gd" id="11_lj1v2"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8gbba"]
-size = Vector2(10, 10)
+[sub_resource type="AtlasTexture" id="AtlasTexture_irndq"]
+atlas = ExtResource("3_lj1v2")
+region = Rect2(0, 0, 46, 56)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_npn7s"]
-radius = 5.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8exc"]
+atlas = ExtResource("3_lj1v2")
+region = Rect2(46, 0, 46, 56)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i562e"]
-radius = 5.0
-height = 10.0
+[sub_resource type="SpriteFrames" id="SpriteFrames_efeje"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_irndq")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_p8exc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lj1v2"]
+radius = 4.0
+height = 28.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_irndq"]
+radius = 9.0
+height = 28.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i562e"]
-radius = 23.0
+radius = 68.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ebo8h"]
-radius = 6.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p8exc"]
+radius = 9.0
+height = 28.0
 
 [node name="YarnCat" type="CharacterBody2D" node_paths=PackedStringArray("pass_area", "pass_area_sprite") groups=["YarnCat"]]
 process_mode = 3
@@ -35,12 +57,14 @@ yarn_piece = ExtResource("2_p0tp3")
 pass_area = NodePath("PassArea2D")
 pass_area_sprite = NodePath("PassArea2D/Sprite2D")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.0924, 0.60326, 0.84, 1)
-texture = SubResource("PlaceholderTexture2D_8gbba")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_efeje")
+frame = 1
+frame_progress = 0.8095545
 
 [node name="BodyCollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_npn7s")
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_lj1v2")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_i562e")]
 max_health = 10
@@ -48,7 +72,8 @@ max_health = 10
 [node name="HurtboxComponent" parent="." instance=ExtResource("3_p0tp3")]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtboxComponent"]
-shape = SubResource("CapsuleShape2D_i562e")
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_irndq")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_hfd8b")
@@ -60,8 +85,7 @@ metadata/_custom_type_script = "uid://bk5cveh720lnc"
 
 [node name="YCatMove" type="Node" parent="StateMachine"]
 script = ExtResource("3_gm3cx")
-movement_speed = 10.0
-speed_multiplier = 50.0
+speed_multiplier = 100.0
 metadata/_custom_type_script = "uid://cwe0d5fdy0dxd"
 
 [node name="YCatDeath" type="Node" parent="StateMachine"]
@@ -91,6 +115,7 @@ collision_layer = 0
 shape = SubResource("CircleShape2D_i562e")
 
 [node name="Sprite2D" type="Sprite2D" parent="PassArea2D"]
+visible = false
 z_index = -1
 scale = Vector2(0.044674, 0.044674)
 texture = ExtResource("11_ebo8h")
@@ -99,7 +124,8 @@ texture = ExtResource("11_ebo8h")
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BurnArea2D"]
-shape = SubResource("CircleShape2D_ebo8h")
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_p8exc")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 rect = Rect2(-5, -5, 10, 10)

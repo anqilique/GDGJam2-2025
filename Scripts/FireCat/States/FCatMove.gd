@@ -1,13 +1,14 @@
 extends State
 class_name FCatMove
 
-@export var movement_speed: float
 @export var speed_multiplier: float
 
 var cat
+var animated_sprite
 
 func enter():
 	cat = get_tree().get_first_node_in_group("FireCat")
+	animated_sprite = cat.get_node("AnimatedSprite2D")
 
 func exit():
 	pass
@@ -24,8 +25,10 @@ func physics_update(_delta):
 		cat.velocity.y += 1
 	if (Input.is_action_pressed("fire_cat_move_left")):
 		cat.velocity.x -= 1
+		animated_sprite.scale.x = -1
 	if (Input.is_action_pressed("fire_cat_move_right")):
 		cat.velocity.x += 1
+		animated_sprite.scale.x = 1
 	
 	if cat.velocity.length() > 0:
 		cat.velocity = cat.velocity.normalized() * speed_multiplier

@@ -10,13 +10,14 @@ height = 8.0
 size = Vector2(1, 6)
 
 [sub_resource type="Gradient" id="Gradient_36sry"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.88, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_pqci0"]
 gradient = SubResource("Gradient_36sry")
 fill = 1
 fill_from = Vector2(0.502616, 0.506271)
-fill_to = Vector2(0.13084112, 0.817757)
+fill_to = Vector2(0.21028037, 0.74766356)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wced7"]
 radius = 1.0
@@ -39,8 +40,9 @@ texture = SubResource("PlaceholderTexture2D_36sry")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 z_index = 2
-position = Vector2(0, -3)
-scale = Vector2(3.073235, 3.073235)
+position = Vector2(1.9073486e-06, -3.000001)
+scale = Vector2(4.976562, 4.976562)
+color = Color(1, 0.83137256, 0.65882355, 0.62352943)
 energy = 2.0
 texture = SubResource("GradientTexture2D_pqci0")
 texture_scale = 0.5

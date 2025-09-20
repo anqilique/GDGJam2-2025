@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://r7jxd36vluqq"]
+[gd_scene load_steps=16 format=3 uid="uid://r7jxd36vluqq"]
 
 [ext_resource type="Script" uid="uid://c8mrrp0yjara" path="res://Scripts/FireCat/FireCat.gd" id="1_l7j73"]
+[ext_resource type="Texture2D" uid="uid://cr0ppyxnjvg6j" path="res://Assets/Art/fcat.png" id="2_jqa16"]
 [ext_resource type="Script" uid="uid://cjson8dx74ue8" path="res://Scripts/Components/StateMachine.gd" id="2_npn7s"]
 [ext_resource type="PackedScene" uid="uid://r01f1wrgnauk" path="res://Scenes/Components/HealthComponent.tscn" id="2_vee4i"]
 [ext_resource type="Script" uid="uid://4n0vsokd7a1h" path="res://Scripts/FireCat/States/FCatMove.gd" id="3_5n1l1"]
@@ -10,26 +11,50 @@
 [ext_resource type="Script" uid="uid://b77q21jp2dn0r" path="res://Scripts/FireCat/States/FCatHit.gd" id="6_05lf0"]
 [ext_resource type="Script" path="res://Scripts/ChangeFireCatGlobal.gd" id="9_esvvl"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8gbba"]
-size = Vector2(10, 10)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqa16"]
+atlas = ExtResource("2_jqa16")
+region = Rect2(0, 0, 46, 56)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_npn7s"]
-radius = 5.09902
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyi46"]
+atlas = ExtResource("2_jqa16")
+region = Rect2(46, 0, 46, 56)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vee4i"]
-radius = 5.0
-height = 10.0
+[sub_resource type="SpriteFrames" id="SpriteFrames_tky5c"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_jqa16")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_jyi46")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jqa16"]
+radius = 4.0
+height = 28.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jyi46"]
+radius = 9.0
+height = 28.0
 
 [node name="FireCat" type="CharacterBody2D" node_paths=PackedStringArray("health_component") groups=["FireCat"]]
 process_mode = 3
 script = ExtResource("1_l7j73")
 health_component = NodePath("HealthComponent")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_8gbba")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tky5c")
+frame = 1
+frame_progress = 0.8696454
 
 [node name="BodyCollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_npn7s")
+position = Vector2(1, 2)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_jqa16")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_vee4i")]
 max_health = 10
@@ -37,7 +62,9 @@ max_health = 10
 [node name="HurtboxComponent" parent="." instance=ExtResource("3_esvvl")]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtboxComponent"]
-shape = SubResource("CapsuleShape2D_vee4i")
+position = Vector2(1, 2)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_jyi46")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_npn7s")
@@ -49,8 +76,7 @@ metadata/_custom_type_script = "uid://dmayw70bw8ny8"
 
 [node name="FCatMove" type="Node" parent="StateMachine"]
 script = ExtResource("3_5n1l1")
-movement_speed = 10.0
-speed_multiplier = 50.0
+speed_multiplier = 100.0
 metadata/_custom_type_script = "uid://4n0vsokd7a1h"
 
 [node name="FCatDeath" type="Node" parent="StateMachine"]

@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://dxkwm0vmbd0rt" path="res://Scripts/Arrows/DirectionArrowFire.gd" id="4_n4vac"]
 
 [node name="Camera2D" type="Camera2D"]
-zoom = Vector2(9, 9)
 script = ExtResource("1_7gs4n")
 
 [node name="YarnDirectionArrow" type="Sprite2D" parent="." node_paths=PackedStringArray("arrow", "arrow_sprite")]
