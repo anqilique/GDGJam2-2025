@@ -145,6 +145,16 @@ offset_bottom = 139.0
 text = "Yarn Cat - Search {location}? [SHIFT]"
 horizontal_alignment = 1
 
+[node name="SearchResultLabel" type="Label" parent="CanvasLayer"]
+modulate = Color(0.30980393, 0.5254902, 0.9764706, 1)
+z_index = 4
+offset_left = 320.0
+offset_top = 139.0
+offset_right = 832.0
+offset_bottom = 166.0
+text = "Yarn Cat - Found thingy thing!"
+horizontal_alignment = 1
+
 [connection signal="timeout" from="CanDropTimer" to="." method="_on_can_drop_timer_timeout"]
 [connection signal="timeout" from="BurnTimer" to="." method="_on_burn_timer_timeout"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="VisibleOnScreenNotifier2D" method="_on_screen_entered"]

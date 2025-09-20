@@ -1,7 +1,53 @@
-[gd_scene load_steps=3 format=3 uid="uid://gp7d0ao1mwm1"]
+[gd_scene load_steps=11 format=3 uid="uid://depai0jvlppp0"]
 
 [ext_resource type="Theme" uid="uid://dljqrqoj41xf7" path="res://Assets/Resources/theme.tres" id="1_8qavf"]
-[ext_resource type="Script" uid="uid://dohiqntx1mdel" path="res://Scripts/Controls.gd" id="1_e8c2f"]
+[ext_resource type="Script" path="res://Scripts/Controls.gd" id="1_e8c2f"]
+[ext_resource type="Texture2D" uid="uid://cr0ppyxnjvg6j" path="res://Assets/Art/fcat.png" id="2_m0n3a"]
+[ext_resource type="Texture2D" uid="uid://o01u6vh45tfx" path="res://Assets/Art/ycat.png" id="4_q6vtx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqa16"]
+atlas = ExtResource("2_m0n3a")
+region = Rect2(0, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyi46"]
+atlas = ExtResource("2_m0n3a")
+region = Rect2(46, 0, 46, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k4nhr"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_jqa16")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_jyi46")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irndq"]
+atlas = ExtResource("4_q6vtx")
+region = Rect2(0, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8exc"]
+atlas = ExtResource("4_q6vtx")
+region = Rect2(46, 0, 46, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_21kh3"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_irndq")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_p8exc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Controls" type="Control"]
 layout_mode = 3
@@ -17,38 +63,156 @@ script = ExtResource("1_e8c2f")
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0, 0, 0, 0.572549)
+color = Color(0, 0, 0, 1)
 
 [node name="Title" type="Label" parent="CanvasLayer"]
 offset_left = 256.0
-offset_top = 28.0
+offset_top = 1.0
 offset_right = 896.0
-offset_bottom = 116.0
-theme_override_font_sizes/font_size = 64
+offset_bottom = 89.0
+theme_override_font_sizes/font_size = 48
 text = "Controls"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Inputs" type="Label" parent="CanvasLayer"]
-offset_left = 320.0
-offset_top = 160.0
-offset_right = 832.0
-offset_bottom = 397.0
-theme_override_font_sizes/font_size = 32
-text = "Movement - WASD or Arrow Keys
+[node name="Subtitle" type="Label" parent="CanvasLayer"]
+offset_left = 517.0
+offset_top = 58.0
+offset_right = 642.0
+offset_bottom = 109.0
+text = "1-2 Players"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-Attack - Click Left Mouse Button
+[node name="FlameCat" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2.0
+offset_right = 398.0
+offset_bottom = 647.0
 
-Pause - P or Esc Key"
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/FlameCat"]
+y_sort_enabled = true
+position = Vector2(190, 151)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_k4nhr")
+
+[node name="Header" type="Label" parent="CanvasLayer/FlameCat"]
+modulate = Color(0.9529412, 0.25490198, 0.28627452, 1)
+layout_mode = 0
+offset_left = 76.0
+offset_top = 212.0
+offset_right = 306.0
+offset_bottom = 246.0
+theme_override_font_sizes/font_size = 24
+text = "Flame Cat"
 horizontal_alignment = 1
 
+[node name="Label" type="Label" parent="CanvasLayer/FlameCat"]
+modulate = Color(0.9529412, 0.25490198, 0.28627452, 1)
+layout_mode = 0
+offset_left = 56.0
+offset_top = 259.0
+offset_right = 344.0
+offset_bottom = 553.0
+text = "Movement: WASD Keys
+Health: Fire! Decreases over time!
+
+Regain health by holding the Torch.
+
+Role: Protect Yarn Cat from Shadows!
+- Touching them will destroy them...
+- But at the cost of 1 Health.
+
+Manage health carefully, as it is
+very easy for Flame Cat to lose it!"
+
+[node name="YarnCat" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 700.0
+offset_right = 1096.0
+offset_bottom = 647.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/YarnCat"]
+y_sort_enabled = true
+position = Vector2(215, 151)
+scale = Vector2(-4, 4)
+sprite_frames = SubResource("SpriteFrames_21kh3")
+
+[node name="Header" type="Label" parent="CanvasLayer/YarnCat"]
+modulate = Color(0.30980393, 0.5254902, 0.9764706, 1)
+layout_mode = 0
+offset_left = 101.0
+offset_top = 212.0
+offset_right = 331.0
+offset_bottom = 246.0
+theme_override_font_sizes/font_size = 24
+text = "Yarn Cat"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/YarnCat"]
+modulate = Color(0.30980393, 0.5254902, 0.9764706, 1)
+layout_mode = 0
+offset_left = 81.0
+offset_top = 259.0
+offset_right = 394.0
+offset_bottom = 553.0
+text = "Movement: Arrow Keys
+Health: Decreases when hit by Shadows!
+
+[SHIFT] to use Yarn Cat's Search ability.
+
+Role: Search for the Key to the Exit Door!
+- When the Key isn't in a spot, Yarn Cat
+might find some kindling for the Torch!
+
+Yarn Cat needs the Torch to Search,
+and to keep the Shadows away!"
+horizontal_alignment = 2
+
 [node name="Button" type="Button" parent="CanvasLayer"]
-offset_left = 512.0
-offset_top = 512.0
-offset_right = 640.0
-offset_bottom = 575.0
+offset_left = 511.0
+offset_top = 546.0
+offset_right = 639.0
+offset_bottom = 609.0
 theme = ExtResource("1_8qavf")
 theme_override_font_sizes/font_size = 40
 text = "BACK"
+
+[node name="Header" type="Label" parent="CanvasLayer"]
+modulate = Color(0.9529412, 0.7411765, 0.28627452, 1)
+offset_left = 256.0
+offset_top = 96.0
+offset_right = 896.0
+offset_bottom = 184.0
+theme_override_font_sizes/font_size = 24
+text = "Escape the House!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Content" type="Label" parent="CanvasLayer"]
+modulate = Color(0.9529412, 0.7411765, 0.28627452, 1)
+offset_left = 256.0
+offset_top = 173.0
+offset_right = 896.0
+offset_bottom = 508.0
+text = "Shadows will try to stop you. 
+You need to find the Key to unlock the Door.
+
+But don't get too close to each other,
+or Yarn Cat will burn!
+
+Pass the Torch to...
+- Keep Flame Cat alive
+- Keep Shadows away from Yarn Cat
+- Let Yarn Cat search around the House
+
+You can search places multiple times.
+
+Good luck! =^owo^=
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

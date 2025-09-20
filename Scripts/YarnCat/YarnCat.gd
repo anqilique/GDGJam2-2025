@@ -17,13 +17,14 @@ func _ready() -> void:
 	fire_cat = get_tree().get_first_node_in_group("FireCat")
 	$BurnTimer.wait_time = Globals.alight_time
 	$CanvasLayer/SearchLabel.hide()
+	$CanvasLayer/SearchResultLabel.hide()
 
 
 func search(location):
 	if location == Globals.key_location:
 		if not Globals.key_found:
 			Globals.key_found = true
-			$CanvasLayer/SearchLabel.text = "Yarn Cat - The Key has been found!"
+			$CanvasLayer/SearchResultLabel.text = "The Key has been found!"
 	else:
 		var find_kindling = randi_range(1, 4)
 		
@@ -33,9 +34,11 @@ func search(location):
 			if Globals.torch_flames > 10:
 				Globals.torch_flames = 10
 			
-			$CanvasLayer/SearchLabel.text = "Yarn Cat - Found some kindling!"
+			$CanvasLayer/SearchResultLabel.text = "Found some kindling!"
 		else:
-			$CanvasLayer/SearchLabel.text = "Yarn Cat - Nothing here! Try again?"
+			$CanvasLayer/SearchResultLabel.text = "Nothing here! Try again?"
+	
+	$CanvasLayer/SearchResultLabel.show()
 
 
 func show_searchable(location):
@@ -57,6 +60,8 @@ func _physics_process(_delta):
 		$AnimatedSprite2D.play("default")
 		if $CanvasLayer/SearchLabel.is_visible():
 			$CanvasLayer/SearchLabel.hide()
+		if $CanvasLayer/SearchResultLabel.is_visible():
+			$CanvasLayer/SearchResultLabel.hide()
 		
 	else:
 		$AnimatedSprite2D.stop()

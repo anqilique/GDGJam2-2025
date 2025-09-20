@@ -103,7 +103,7 @@ color = Color(0, 0, 0, 1)
 position = Vector2(21, 274)
 
 [node name="Icon" parent="Door" index="0"]
-modulate = Color(0, 0, 0, 1)
+modulate = Color(0.2784314, 0.05490196, 0, 1)
 position = Vector2(8.604545, 17.302631)
 scale = Vector2(0.256179, 0.40152162)
 
@@ -111,6 +111,7 @@ scale = Vector2(0.256179, 0.40152162)
 position = Vector2(8.674133, 17.5)
 
 [node name="CollisionShapes" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShapes"]
 position = Vector2(-336, -116)
@@ -231,11 +232,12 @@ region_enabled = true
 region_rect = Rect2(35, 102, 35, 346)
 
 [node name="DarknessNode" type="DirectionalLight2D" parent="."]
-color = Color(0.07058824, 0, 0, 0.75686276)
+color = Color(0.07058824, 0, 0, 0.84705883)
 blend_mode = 2
 range_z_max = 3
 
 [node name="SearchSpotContainer" type="Node2D" parent="."]
+visible = false
 script = ExtResource("4_myvm1")
 
 [node name="TopLeft" type="Node" parent="SearchSpotContainer"]
@@ -314,25 +316,15 @@ shape = SubResource("CapsuleShape2D_w7jjh")
 position = Vector2(272, 168)
 shape = SubResource("CapsuleShape2D_6q3n4")
 
-[connection signal="body_entered" from="SearchSpotContainer/TopLeft/Bed" to="SearchSpotContainer" method="_on_bed_body_entered"]
 [connection signal="body_exited" from="SearchSpotContainer/TopLeft/Bed" to="SearchSpotContainer" method="_on_search_body_exited"]
-[connection signal="body_entered" from="SearchSpotContainer/TopLeft/Drawer" to="SearchSpotContainer" method="_on_drawer_body_entered"]
 [connection signal="body_exited" from="SearchSpotContainer/TopLeft/Drawer" to="SearchSpotContainer" method="_on_search_body_exited"]
-[connection signal="body_entered" from="SearchSpotContainer/TopRight/Table1" to="SearchSpotContainer" method="_on_table1_body_entered"]
 [connection signal="body_exited" from="SearchSpotContainer/TopRight/Table1" to="SearchSpotContainer" method="_on_search_body_exited"]
-[connection signal="body_entered" from="SearchSpotContainer/TopRight/Cabinets" to="SearchSpotContainer" method="_on_cabinets_body_entered"]
 [connection signal="body_exited" from="SearchSpotContainer/TopRight/Cabinets" to="SearchSpotContainer" method="_on_search_body_exited"]
-[connection signal="body_entered" from="SearchSpotContainer/BtmLeft/Couch" to="SearchSpotContainer" method="_on_couch_body_entered"]
 [connection signal="body_exited" from="SearchSpotContainer/BtmLeft/Couch" to="SearchSpotContainer" method="_on_search_body_exited"]
-[connection signal="body_entered" from="SearchSpotContainer/BtmLeft/Book" to="SearchSpotContainer" method="_on_book_body_entered"]
 [connection signal="body_exited" from="SearchSpotContainer/BtmLeft/Book" to="SearchSpotContainer" method="_on_search_body_exited"]
-[connection signal="body_entered" from="SearchSpotContainer/BtmLeft/ShelfL" to="SearchSpotContainer" method="_on_shelf_l_body_entered"]
 [connection signal="body_exited" from="SearchSpotContainer/BtmLeft/ShelfL" to="SearchSpotContainer" method="_on_search_body_exited"]
-[connection signal="body_entered" from="SearchSpotContainer/BtmRight/ShelfR" to="SearchSpotContainer" method="_on_shelf_r_body_entered"]
 [connection signal="body_exited" from="SearchSpotContainer/BtmRight/ShelfR" to="SearchSpotContainer" method="_on_search_body_exited"]
-[connection signal="body_entered" from="SearchSpotContainer/BtmRight/Bag" to="SearchSpotContainer" method="_on_bag_body_entered"]
 [connection signal="body_exited" from="SearchSpotContainer/BtmRight/Bag" to="SearchSpotContainer" method="_on_search_body_exited"]
-[connection signal="body_entered" from="SearchSpotContainer/BtmRight/Table2" to="SearchSpotContainer" method="_on_table_2_body_entered"]
 [connection signal="body_exited" from="SearchSpotContainer/BtmRight/Table2" to="SearchSpotContainer" method="_on_search_body_exited"]
 
 [editable path="Door"]
