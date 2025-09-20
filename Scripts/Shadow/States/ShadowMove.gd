@@ -25,7 +25,7 @@ func physics_update(_delta):
 
 	var max_range := 0.0
 	if Globals.torch_holder == "YarnCat" and Globals.torch_flames > 0:
-		max_range = 40
+		max_range = 60
 
 	var direction: Vector2
 	direction.x = cos(angle)
