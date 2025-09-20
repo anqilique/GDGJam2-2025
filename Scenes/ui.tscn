@@ -83,6 +83,16 @@ scale = Vector2(-1, 1)
 text = "Yarn Cat"
 horizontal_alignment = 2
 
+[node name="Label2" type="Label" parent="HealthBars/YCatHealth"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 56.0
+offset_right = 340.0
+offset_bottom = 79.0
+scale = Vector2(-1, 1)
+text = "Key Found! Find Door!"
+horizontal_alignment = 2
+
 [node name="TorchFlames" type="ProgressBar" parent="HealthBars"]
 layout_mode = 0
 offset_left = 320.0

@@ -3,7 +3,7 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$HealthBars/YCatHealth/Label2.text = "Find Key!"
 
 
 func check_health_bars():
@@ -42,3 +42,6 @@ func update_bars(bars_list):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	check_health_bars()
+	
+	if Globals.key_found and $HealthBars/YCatHealth/Label2.text != "Key Found!":
+		$HealthBars/YCatHealth/Label2.text = "Key Found! Find Door!"

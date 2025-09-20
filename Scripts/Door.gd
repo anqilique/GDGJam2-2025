@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 	if (
 		fire_cat in win_range
 		and yarn_cat in win_range
+		and Globals.key_found
 	):
 		get_tree().change_scene_to_file("res://Scenes/win_screen.tscn")
 	

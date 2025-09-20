@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://ddaet4ni81qki"]
+[gd_scene load_steps=31 format=3 uid="uid://ddaet4ni81qki"]
 
 [ext_resource type="PackedScene" uid="uid://bdtv1ln0t1j8i" path="res://Scenes/door.tscn" id="1_ci6au"]
 [ext_resource type="Texture2D" uid="uid://ci24sbmfj03u7" path="res://Assets/Art/house.png" id="2_26yhd"]
 [ext_resource type="Texture2D" uid="uid://b8t616ns614os" path="res://Assets/Art/furniture.png" id="3_p3ir5"]
+[ext_resource type="Script" uid="uid://ckelbmrq10wd0" path="res://Scripts/SearchSpots.gd" id="4_myvm1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p3ir5"]
 size = Vector2(20, 328)
@@ -20,7 +21,7 @@ size = Vector2(184, 128)
 size = Vector2(220, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6q3n4"]
-size = Vector2(78, 32)
+size = Vector2(78, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4c2oa"]
 size = Vector2(279, 88)
@@ -46,6 +47,48 @@ size = Vector2(13.0625, 121)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fls3e"]
 size = Vector2(99.53125, 64)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ie368"]
+size = Vector2(62.53125, 28.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p3ir5"]
+radius = 88.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_myvm1"]
+radius = 56.0
+height = 112.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q0mm3"]
+radius = 88.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_np2xp"]
+radius = 64.49806
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_myvm1"]
+radius = 64.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q0mm3"]
+radius = 40.0
+height = 176.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w7jjh"]
+radius = 32.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p3ir5"]
+radius = 24.0
+height = 80.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_np2xp"]
+radius = 24.0
+height = 80.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w7jjh"]
+radius = 24.0
+height = 80.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6q3n4"]
+radius = 24.0
+height = 80.0
+
 [node name="Map" type="Node2D"]
 
 [node name="DarkBackground" type="ColorRect" parent="."]
@@ -66,66 +109,6 @@ scale = Vector2(0.256179, 0.40152162)
 
 [node name="CollisionShape2D" parent="Door/Area2D" index="0"]
 position = Vector2(8.674133, 17.5)
-
-[node name="House" type="Sprite2D" parent="."]
-modulate = Color(0.69965345, 0.69965345, 0.69965345, 1)
-z_index = -1
-texture = ExtResource("2_26yhd")
-
-[node name="TopFurniture" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(28, -143)
-texture = ExtResource("3_p3ir5")
-region_enabled = true
-region_rect = Rect2(0, 52.39003, 819, 382.36017)
-
-[node name="BtmRFurniture" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(207, 164)
-texture = ExtResource("3_p3ir5")
-region_enabled = true
-region_rect = Rect2(460, 429, 285, 275)
-
-[node name="BtmMFurniture" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(-39.5, 99)
-texture = ExtResource("3_p3ir5")
-region_enabled = true
-region_rect = Rect2(104, 438, 83, 96)
-
-[node name="BtmMFurniture2" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(50.5, 97)
-texture = ExtResource("3_p3ir5")
-region_enabled = true
-region_rect = Rect2(297, 439, 97, 91)
-
-[node name="BtmLFurniture1" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(-130, 217)
-texture = ExtResource("3_p3ir5")
-region_enabled = true
-region_rect = Rect2(93, 538, 308, 163)
-
-[node name="WallMiddle" type="Sprite2D" parent="."]
-modulate = Color(0.69965345, 0.69965345, 0.69965345, 1)
-z_index = -1
-position = Vector2(0, 36)
-texture = ExtResource("2_26yhd")
-region_enabled = true
-region_rect = Rect2(0, 409, 786, 39)
-
-[node name="WallTopLeft" type="Sprite2D" parent="."]
-modulate = Color(0.69965345, 0.69965345, 0.69965345, 1)
-z_index = -1
-position = Vector2(-343, -118)
-texture = ExtResource("2_26yhd")
-region_enabled = true
-region_rect = Rect2(35, 102, 35, 346)
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-color = Color(0.07058824, 0, 0, 0.74509805)
-blend_mode = 2
 
 [node name="CollisionShapes" type="StaticBody2D" parent="."]
 
@@ -150,7 +133,7 @@ position = Vector2(-102, 274)
 shape = SubResource("RectangleShape2D_w7jjh")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="CollisionShapes"]
-position = Vector2(-127, 192)
+position = Vector2(-127, 184)
 shape = SubResource("RectangleShape2D_6q3n4")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="CollisionShapes"]
@@ -184,5 +167,174 @@ shape = SubResource("RectangleShape2D_x5dfk")
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="CollisionShapes"]
 position = Vector2(-32, -208)
 shape = SubResource("RectangleShape2D_fls3e")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="CollisionShapes"]
+position = Vector2(32.734375, 329.75)
+shape = SubResource("RectangleShape2D_ie368")
+
+[node name="SpriteContainer" type="Node2D" parent="."]
+
+[node name="House" type="Sprite2D" parent="SpriteContainer"]
+modulate = Color(0.69965345, 0.69965345, 0.69965345, 1)
+z_index = -1
+texture = ExtResource("2_26yhd")
+
+[node name="TopFurniture" type="Sprite2D" parent="SpriteContainer"]
+z_index = -1
+position = Vector2(28, -143)
+texture = ExtResource("3_p3ir5")
+region_enabled = true
+region_rect = Rect2(0, 52.39003, 819, 382.36017)
+
+[node name="BtmRFurniture" type="Sprite2D" parent="SpriteContainer"]
+z_index = -1
+position = Vector2(207, 164)
+texture = ExtResource("3_p3ir5")
+region_enabled = true
+region_rect = Rect2(460, 429, 285, 275)
+
+[node name="BtmMFurniture" type="Sprite2D" parent="SpriteContainer"]
+z_index = -1
+position = Vector2(-39.5, 99)
+texture = ExtResource("3_p3ir5")
+region_enabled = true
+region_rect = Rect2(104, 438, 83, 96)
+
+[node name="BtmMFurniture2" type="Sprite2D" parent="SpriteContainer"]
+z_index = -1
+position = Vector2(50.5, 97)
+texture = ExtResource("3_p3ir5")
+region_enabled = true
+region_rect = Rect2(297, 439, 97, 91)
+
+[node name="BtmLFurniture1" type="Sprite2D" parent="SpriteContainer"]
+z_index = -1
+position = Vector2(-130, 217)
+texture = ExtResource("3_p3ir5")
+region_enabled = true
+region_rect = Rect2(93, 538, 308, 163)
+
+[node name="WallMiddle" type="Sprite2D" parent="SpriteContainer"]
+modulate = Color(0.69965345, 0.69965345, 0.69965345, 1)
+z_index = -1
+position = Vector2(0, 36)
+texture = ExtResource("2_26yhd")
+region_enabled = true
+region_rect = Rect2(0, 409, 786, 39)
+
+[node name="WallTopLeft" type="Sprite2D" parent="SpriteContainer"]
+modulate = Color(0.69965345, 0.69965345, 0.69965345, 1)
+z_index = -1
+position = Vector2(-343, -118)
+texture = ExtResource("2_26yhd")
+region_enabled = true
+region_rect = Rect2(35, 102, 35, 346)
+
+[node name="DarknessNode" type="DirectionalLight2D" parent="."]
+visible = false
+color = Color(0.07058824, 0, 0, 0.89411765)
+blend_mode = 2
+range_z_max = 3
+
+[node name="SearchSpotContainer" type="Node2D" parent="."]
+visible = false
+script = ExtResource("4_myvm1")
+
+[node name="TopLeft" type="Node" parent="SearchSpotContainer"]
+
+[node name="Bed" type="Area2D" parent="SearchSpotContainer/TopLeft" groups=["SearchSpots"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SearchSpotContainer/TopLeft/Bed"]
+position = Vector2(-248, -120)
+shape = SubResource("CircleShape2D_p3ir5")
+
+[node name="Drawer" type="Area2D" parent="SearchSpotContainer/TopLeft" groups=["SearchSpots"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SearchSpotContainer/TopLeft/Drawer"]
+position = Vector2(-88, -176)
+shape = SubResource("CapsuleShape2D_myvm1")
+
+[node name="TopRight" type="Node" parent="SearchSpotContainer"]
+
+[node name="Table1" type="Area2D" parent="SearchSpotContainer/TopRight" groups=["SearchSpots"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SearchSpotContainer/TopRight/Table1"]
+position = Vector2(208, -104)
+shape = SubResource("CircleShape2D_q0mm3")
+
+[node name="Cabinets" type="Area2D" parent="SearchSpotContainer/TopRight" groups=["SearchSpots"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SearchSpotContainer/TopRight/Cabinets"]
+position = Vector2(88, -232)
+shape = SubResource("CircleShape2D_np2xp")
+
+[node name="BtmLeft" type="Node" parent="SearchSpotContainer"]
+
+[node name="Couch" type="Area2D" parent="SearchSpotContainer/BtmLeft" groups=["SearchSpots"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SearchSpotContainer/BtmLeft/Couch"]
+position = Vector2(-232, 192)
+shape = SubResource("CircleShape2D_myvm1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SearchSpotContainer/BtmLeft/Couch"]
+position = Vector2(-120, 264)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_q0mm3")
+
+[node name="Book" type="Area2D" parent="SearchSpotContainer/BtmLeft" groups=["SearchSpots"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SearchSpotContainer/BtmLeft/Book"]
+position = Vector2(-112, 184)
+shape = SubResource("CircleShape2D_w7jjh")
+
+[node name="ShelfL" type="Area2D" parent="SearchSpotContainer/BtmLeft" groups=["SearchSpots"]]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SearchSpotContainer/BtmLeft/ShelfL"]
+position = Vector2(-40, 128)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_p3ir5")
+
+[node name="BtmRight" type="Node" parent="SearchSpotContainer"]
+
+[node name="ShelfR" type="Area2D" parent="SearchSpotContainer/BtmRight" groups=["SearchSpots"]]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SearchSpotContainer/BtmRight/ShelfR"]
+position = Vector2(46, 128)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_np2xp")
+
+[node name="Bag" type="Area2D" parent="SearchSpotContainer/BtmRight" groups=["SearchSpots"]]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SearchSpotContainer/BtmRight/Bag"]
+position = Vector2(232, 248)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_w7jjh")
+
+[node name="Table2" type="Area2D" parent="SearchSpotContainer/BtmRight" groups=["SearchSpots"]]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SearchSpotContainer/BtmRight/Table2"]
+position = Vector2(272, 168)
+shape = SubResource("CapsuleShape2D_6q3n4")
+
+[connection signal="body_entered" from="SearchSpotContainer/TopLeft/Bed" to="SearchSpotContainer" method="_on_bed_body_entered"]
+[connection signal="body_exited" from="SearchSpotContainer/TopLeft/Bed" to="SearchSpotContainer" method="_on_search_body_exited"]
+[connection signal="body_entered" from="SearchSpotContainer/TopLeft/Drawer" to="SearchSpotContainer" method="_on_drawer_body_entered"]
+[connection signal="body_exited" from="SearchSpotContainer/TopLeft/Drawer" to="SearchSpotContainer" method="_on_search_body_exited"]
+[connection signal="body_entered" from="SearchSpotContainer/TopRight/Table1" to="SearchSpotContainer" method="_on_table1_body_entered"]
+[connection signal="body_exited" from="SearchSpotContainer/TopRight/Table1" to="SearchSpotContainer" method="_on_search_body_exited"]
+[connection signal="body_entered" from="SearchSpotContainer/TopRight/Cabinets" to="SearchSpotContainer" method="_on_cabinets_body_entered"]
+[connection signal="body_exited" from="SearchSpotContainer/TopRight/Cabinets" to="SearchSpotContainer" method="_on_search_body_exited"]
+[connection signal="body_entered" from="SearchSpotContainer/BtmLeft/Couch" to="SearchSpotContainer" method="_on_couch_body_entered"]
+[connection signal="body_exited" from="SearchSpotContainer/BtmLeft/Couch" to="SearchSpotContainer" method="_on_search_body_exited"]
+[connection signal="body_entered" from="SearchSpotContainer/BtmLeft/Book" to="SearchSpotContainer" method="_on_book_body_entered"]
+[connection signal="body_exited" from="SearchSpotContainer/BtmLeft/Book" to="SearchSpotContainer" method="_on_search_body_exited"]
+[connection signal="body_entered" from="SearchSpotContainer/BtmLeft/ShelfL" to="SearchSpotContainer" method="_on_shelf_l_body_entered"]
+[connection signal="body_exited" from="SearchSpotContainer/BtmLeft/ShelfL" to="SearchSpotContainer" method="_on_search_body_exited"]
+[connection signal="body_entered" from="SearchSpotContainer/BtmRight/ShelfR" to="SearchSpotContainer" method="_on_shelf_r_body_entered"]
+[connection signal="body_exited" from="SearchSpotContainer/BtmRight/ShelfR" to="SearchSpotContainer" method="_on_search_body_exited"]
+[connection signal="body_entered" from="SearchSpotContainer/BtmRight/Bag" to="SearchSpotContainer" method="_on_bag_body_entered"]
+[connection signal="body_exited" from="SearchSpotContainer/BtmRight/Bag" to="SearchSpotContainer" method="_on_search_body_exited"]
+[connection signal="body_entered" from="SearchSpotContainer/BtmRight/Table2" to="SearchSpotContainer" method="_on_table_2_body_entered"]
+[connection signal="body_exited" from="SearchSpotContainer/BtmRight/Table2" to="SearchSpotContainer" method="_on_search_body_exited"]
 
 [editable path="Door"]

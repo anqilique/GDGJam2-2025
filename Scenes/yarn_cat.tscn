@@ -63,6 +63,17 @@ sprite_frames = SubResource("SpriteFrames_efeje")
 frame = 1
 frame_progress = 0.8095545
 
+[node name="SearchLabel" type="Label" parent="."]
+z_index = 4
+offset_left = -59.0
+offset_top = -49.0
+offset_right = 79.0
+offset_bottom = -22.0
+theme_override_font_sizes/font_size = 8
+text = "Search {location}?
+[SHIFT]"
+horizontal_alignment = 1
+
 [node name="BodyCollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_lj1v2")
