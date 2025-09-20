@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://qclsyowvfcpc" path="res://Assets/Art/icon.svg" id="1_w6aom"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w6aom"]
-size = Vector2(126, 3.65041)
+size = Vector2(268.83582, 10.3428135)
 
 [node name="Door" type="Node2D"]
 script = ExtResource("1_p0e35")

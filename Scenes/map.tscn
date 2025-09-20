@@ -1,49 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddaet4ni81qki"]
+[gd_scene load_steps=3 format=3 uid="uid://ddaet4ni81qki"]
 
-[ext_resource type="PackedScene" path="res://Scenes/door.tscn" id="1_ci6au"]
+[ext_resource type="PackedScene" uid="uid://bdtv1ln0t1j8i" path="res://Scenes/door.tscn" id="1_ci6au"]
+[ext_resource type="Texture2D" uid="uid://ci24sbmfj03u7" path="res://Assets/Art/house.png" id="2_26yhd"]
 
 [node name="Map" type="Node2D"]
 
 [node name="DarkBackground" type="ColorRect" parent="."]
 z_index = -1
-offset_left = -339.0
-offset_top = -215.0
+offset_left = -635.0
+offset_top = -547.0
 offset_right = 654.0
 offset_bottom = 466.0
-color = Color(0.103744, 0.103744, 0.103744, 1)
-
-[node name="Environment" type="Node2D" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="Environment"]
-offset_right = 18.0
-offset_bottom = 233.0
-
-[node name="ColorRect2" type="ColorRect" parent="Environment"]
-offset_left = 297.0
-offset_right = 315.0
-offset_bottom = 233.0
-
-[node name="ColorRect3" type="ColorRect" parent="Environment"]
-offset_left = 278.0
-offset_top = -92.0
-offset_right = 296.0
-offset_bottom = 141.0
-rotation = 1.5708
-
-[node name="ColorRect4" type="ColorRect" parent="Environment"]
-offset_left = 278.0
-offset_top = 324.0
-offset_right = 296.0
-offset_bottom = 557.0
-rotation = 1.5708
+color = Color(0, 0, 0, 1)
 
 [node name="Door" parent="." instance=ExtResource("1_ci6au")]
-position = Vector2(157, 258)
+position = Vector2(21, 274)
 
-[node name="Darkness" type="ColorRect" parent="."]
-visible = false
-offset_left = -339.0
-offset_top = -215.0
-offset_right = 654.0
-offset_bottom = 466.0
-color = Color(0.0156863, 0, 0, 0.847059)
+[node name="Icon" parent="Door" index="0"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(8.604545, 17.302631)
+scale = Vector2(0.256179, 0.40152162)
+
+[node name="CollisionShape2D" parent="Door/Area2D" index="0"]
+position = Vector2(8.674133, 17.5)
+
+[node name="House" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("2_26yhd")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.07058824, 0, 0, 0.74509805)
+blend_mode = 2
+
+[editable path="Door"]
