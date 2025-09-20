@@ -124,7 +124,6 @@ region_enabled = true
 region_rect = Rect2(35, 102, 35, 346)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-visible = false
 color = Color(0.07058824, 0, 0, 0.74509805)
 blend_mode = 2
 
