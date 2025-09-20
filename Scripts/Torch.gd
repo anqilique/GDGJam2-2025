@@ -18,6 +18,14 @@ func change_target(new_target):
 
 
 func _process(delta: float) -> void:
+	if Globals.torch_flames == 0:
+		$CPUParticles2D.emitting = false
+		$PointLight2D.enabled = false
+	else:
+		if $CPUParticles2D.amount != Globals.torch_flames * 4:
+			$CPUParticles2D.amount = Globals.torch_flames * 4
+	
+	
 	if target:
 		var distance_to_target := transform.origin.distance_to(target.transform.origin)
 

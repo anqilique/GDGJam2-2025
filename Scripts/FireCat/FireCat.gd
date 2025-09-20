@@ -6,12 +6,23 @@ var timer := 0.0
 var tick_rate = 1.5
 var can_revive = true
 
+func _ready() -> void:
+	$CPUParticles2D.emitting = true
+
+
 func _physics_process(delta):
-	if Globals.torch_holder != "FireCat":
+	if Globals.torch_holder == "FireCat":
 		$AnimatedSprite2D.play("default")
 	else:
 		$AnimatedSprite2D.stop()
 		$AnimatedSprite2D.frame = 0
+	
+	if Globals.fire_cat_health == 0:
+		$CPUParticles2D.emitting = false
+		$PointLight2D.enabled = false
+	else:
+		if $CPUParticles2D.amount != Globals.fire_cat_health * 3:
+			$CPUParticles2D.amount = Globals.fire_cat_health * 3
 	
 	timer += delta
 	if timer >= tick_rate:
