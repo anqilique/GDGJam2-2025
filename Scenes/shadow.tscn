@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://clawv8kask8pi"]
+[gd_scene load_steps=16 format=3 uid="uid://clawv8kask8pi"]
 
 [ext_resource type="PackedScene" uid="uid://r01f1wrgnauk" path="res://Scenes/Components/HealthComponent.tscn" id="1_7lfe7"]
 [ext_resource type="Script" uid="uid://coq8d5tcwbsha" path="res://Scripts/Shadow/ShadowHitbox.gd" id="1_pt8rj"]
+[ext_resource type="Script" uid="uid://c4d5wt47djxml" path="res://Scripts/shadow.gd" id="1_s1j64"]
 [ext_resource type="Script" uid="uid://cjson8dx74ue8" path="res://Scripts/Components/StateMachine.gd" id="1_wjdoq"]
 [ext_resource type="PackedScene" uid="uid://4j24cfujirgk" path="res://Scenes/Components/HurtboxComponent.tscn" id="2_pt8rj"]
 [ext_resource type="Script" uid="uid://dqp2wtkte5hth" path="res://Scripts/Shadow/States/ShadowHit.gd" id="3_xxmrs"]
@@ -23,10 +24,20 @@ height = 10.0
 radius = 5.0
 height = 10.0
 
+[sub_resource type="Curve" id="Curve_pt8rj"]
+_data = [Vector2(0, 0.9887641), 0.0, 0.0, 0, 0, Vector2(0.69767445, 0.9662922), 0.0, 0.0, 0, 0, Vector2(1, 0.19101131), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_s1j64"]
+offsets = PackedFloat32Array(0, 0.39726028, 0.8150685, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.28604844, 0.000872418, 0.4852584, 1, 0.24936762, 0.011783855, 0, 1, 0.14926839, 1.8602535e-05, 0.15282303, 0.8901961)
+
 [node name="Shadow" type="CharacterBody2D" groups=["Shadow"]]
 process_mode = 3
+script = ExtResource("1_s1j64")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.591381, 0, 0.143707, 1)
 texture = SubResource("PlaceholderTexture2D_8gbba")
 
@@ -54,7 +65,7 @@ initial_state = NodePath("ShadowMove")
 script = ExtResource("4_bhi63")
 shadow_character_body = NodePath("../..")
 shadow_node = NodePath("../..")
-movement_speed = 10.0
+movement_speed = 25.0
 metadata/_custom_type_script = "uid://c0rmkgfdvs7y5"
 
 [node name="ShadowHit" type="Node" parent="StateMachine" node_paths=PackedStringArray("state_machine")]
@@ -80,6 +91,27 @@ disabled = true
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 0.4
 one_shot = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 40
+lifetime = 0.2
+speed_scale = 0.3
+explosiveness = 0.2
+randomness = 1.0
+emission_shape = 2
+emission_sphere_radius = 8.0
+direction = Vector2(0, -1)
+spread = 90.0
+gravity = Vector2(0, -600)
+orbit_velocity_min = 1.0
+orbit_velocity_max = 2.0
+radial_accel_min = -50.0
+radial_accel_max = -40.0
+scale_amount_min = 4.0
+scale_amount_max = 6.0
+scale_amount_curve = SubResource("Curve_pt8rj")
+color_ramp = SubResource("Gradient_s1j64")
 
 [connection signal="area_entered" from="Hitbox Area2D" to="Hitbox Area2D" method="_on_area_entered"]
 [connection signal="area_exited" from="Hitbox Area2D" to="Hitbox Area2D" method="_on_area_exited"]

@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta):
-	if Globals.torch_holder == "FireCat":
+	if Globals.torch_holder != "FireCat":
 		$AnimatedSprite2D.play("default")
 	else:
 		$AnimatedSprite2D.stop()
