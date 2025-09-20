@@ -75,6 +75,7 @@ metadata/_custom_type_script = "uid://cjee6ug4ipcnb"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_pt8rj")
+disabled = true
 
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 0.4
