@@ -24,6 +24,7 @@ func _process(delta: float) -> void:
 	else:
 		if $CPUParticles2D.amount != Globals.torch_flames * 4:
 			$CPUParticles2D.amount = Globals.torch_flames * 4
+		
 		if not $CPUParticles2D.emitting:
 			$CPUParticles2D.emitting = true
 	

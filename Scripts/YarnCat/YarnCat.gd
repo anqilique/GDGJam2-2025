@@ -29,6 +29,10 @@ func search(location):
 		
 		if find_kindling <= 3:
 			Globals.torch_flames += find_kindling
+			
+			if Globals.torch_flames > 10:
+				Globals.torch_flames = 10
+			
 			$SearchLabel.text = "Found some kindling!"
 		else:
 			$SearchLabel.text = "Nothing here!\nTry again?"
