@@ -73,7 +73,7 @@ frame_progress = 0.8696454
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(0, 13)
 emitting = false
-amount = 18
+amount = 27
 lifetime = 0.2
 speed_scale = 0.3
 explosiveness = 0.1

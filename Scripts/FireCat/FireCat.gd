@@ -27,13 +27,15 @@ func _physics_process(delta):
 	timer += delta
 	if timer >= tick_rate:
 		timer = 0
-		if Globals.torch_holder == "FireCat" and can_revive:
-			health_component.heal(1)
+		if Globals.torch_holder == "FireCat" and Globals.torch_flames > 0:
+			if can_revive:
+				health_component.heal(1)
 		else:
 			health_component.take_damage(1)
 	
 	if Globals.fire_cat_health == 0:
-		$ReviveTimer.start()
+		if $ReviveTimer.is_inside_tree():
+			$ReviveTimer.start()
 
 
 func _on_revive_timer_timeout() -> void:
