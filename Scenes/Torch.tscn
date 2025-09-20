@@ -1,13 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bm0xq7m4hiuve"]
+[gd_scene load_steps=9 format=3 uid="uid://bm0xq7m4hiuve"]
 
 [ext_resource type="Script" uid="uid://g002v8s0fgno" path="res://Scripts/Torch.gd" id="1_wced7"]
+[ext_resource type="Texture2D" uid="uid://bwtdoq30t1b87" path="res://Assets/Art/stick.png" id="2_h1t0l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_36sry"]
 radius = 1.0
 height = 8.0
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_36sry"]
-size = Vector2(1, 6)
 
 [sub_resource type="Gradient" id="Gradient_36sry"]
 offsets = PackedFloat32Array(0, 0.88, 1)
@@ -20,8 +18,16 @@ fill_from = Vector2(0.502616, 0.506271)
 fill_to = Vector2(0.21028037, 0.74766356)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wced7"]
-radius = 1.0
-height = 8.0
+radius = 2.0
+height = 14.0
+
+[sub_resource type="Curve" id="Curve_h1t0l"]
+_data = [Vector2(0, 0.9887641), 0.0, 0.0, 0, 0, Vector2(0.69767445, 0.9662922), 0.0, 0.0, 0, 0, Vector2(1, 0.19101131), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_beu3c"]
+offsets = PackedFloat32Array(0, 0.39726028, 0.8150685, 1)
+colors = PackedColorArray(0.34901962, 0.043137256, 0, 1, 0.7282584, 0.20369089, 0, 1, 0.8862745, 0.627451, 0, 1, 1, 1, 1, 0.8901961)
 
 [node name="Torch" type="CharacterBody2D" groups=["Torch"]]
 collision_layer = 0
@@ -34,9 +40,10 @@ movement_speed = 60.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_36sry")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0.983333, 1, 0, 1)
-texture = SubResource("PlaceholderTexture2D_36sry")
+[node name="Stick" type="Sprite2D" parent="."]
+modulate = Color(0.36282945, 0.36282945, 0.36282945, 1)
+position = Vector2(0, -2)
+texture = ExtResource("2_h1t0l")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 z_index = 2
@@ -50,3 +57,23 @@ texture_scale = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_wced7")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -5)
+emitting = false
+amount = 40
+lifetime = 0.2
+speed_scale = 0.3
+explosiveness = 0.1
+randomness = 1.0
+emission_shape = 2
+emission_sphere_radius = 4.0
+direction = Vector2(0, -1)
+spread = 90.0
+gravity = Vector2(0, -600)
+radial_accel_min = -50.0
+radial_accel_max = -40.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_h1t0l")
+color_ramp = SubResource("Gradient_beu3c")

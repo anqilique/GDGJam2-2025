@@ -10,6 +10,7 @@ var target : Node2D
 
 func _ready():
 	target = get_tree().get_first_node_in_group(Globals.torch_holder)
+	$CPUParticles2D.emitting = true
 
 
 func change_target(new_target):
