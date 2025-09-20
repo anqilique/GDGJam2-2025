@@ -75,4 +75,4 @@ func _on_table_2_body_entered(body: Node2D) -> void:
 func _on_search_body_exited(body: Node2D) -> void:
 	if body.name == "YarnCat":
 		can_search = ""
-		yarn_cat.get_node("SearchLabel").hide()
+		yarn_cat.get_node("CanvasLayer/SearchLabel").hide()

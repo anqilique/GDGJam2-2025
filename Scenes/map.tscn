@@ -231,7 +231,7 @@ region_enabled = true
 region_rect = Rect2(35, 102, 35, 346)
 
 [node name="DarknessNode" type="DirectionalLight2D" parent="."]
-color = Color(0.07058824, 0, 0, 0.89411765)
+color = Color(0.07058824, 0, 0, 0.75686276)
 blend_mode = 2
 range_z_max = 3
 
