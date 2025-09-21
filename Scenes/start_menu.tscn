@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bqsmfx60181ns"]
+[gd_scene load_steps=17 format=3 uid="uid://bqsmfx60181ns"]
 
 [ext_resource type="Script" uid="uid://gdl6ng1wjx3u" path="res://Scripts/UI/StartMenu.gd" id="1_jgtwh"]
 [ext_resource type="Theme" uid="uid://dljqrqoj41xf7" path="res://Assets/Resources/theme.tres" id="1_juhg0"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://o01u6vh45tfx" path="res://Assets/Art/ycat.png" id="5_626he"]
 [ext_resource type="Texture2D" uid="uid://b8t616ns614os" path="res://Assets/Art/furniture.png" id="5_i2i62"]
 [ext_resource type="Texture2D" uid="uid://cr0ppyxnjvg6j" path="res://Assets/Art/fcat.png" id="6_8u0lp"]
+[ext_resource type="AudioStream" uid="uid://coqb85xbhhgyn" path="res://Assets/Audio/cats.mp3" id="7_i2i62"]
 
 [sub_resource type="Animation" id="Animation_626he"]
 length = 0.001
@@ -242,6 +243,14 @@ offset_right = 551.0
 offset_bottom = 621.4248
 theme_override_font_sizes/font_size = 12
 text = "2-Players is ideal, single player for a challenge!"
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AudioListener2D"]
+stream = ExtResource("7_i2i62")
+volume_db = -6.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="ControlsButton" to="." method="_on_controls_button_pressed"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://b74smuspeiav4"]
+[gd_scene load_steps=12 format=3 uid="uid://b74smuspeiav4"]
 
 [ext_resource type="Script" uid="uid://c15kuir52i30e" path="res://Scripts/WinScreen.gd" id="1_a00f1"]
 [ext_resource type="Theme" uid="uid://dljqrqoj41xf7" path="res://Assets/Resources/theme.tres" id="2_awi1s"]
 [ext_resource type="Texture2D" uid="uid://cr0ppyxnjvg6j" path="res://Assets/Art/fcat.png" id="2_bwc64"]
 [ext_resource type="Texture2D" uid="uid://o01u6vh45tfx" path="res://Assets/Art/ycat.png" id="3_bwc64"]
+[ext_resource type="AudioStream" uid="uid://gu4nmw1ca3w1" path="res://Assets/Audio/win.mp3" id="5_85imr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jqa16"]
 atlas = ExtResource("2_bwc64")
@@ -88,12 +89,16 @@ text = "You Got Out! 🎉"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="CanvasLayer"]
-offset_left = 512.0
-offset_top = 448.0
-offset_right = 643.0
-offset_bottom = 501.0
+offset_left = 478.0
+offset_top = 449.0
+offset_right = 677.0
+offset_bottom = 502.0
 theme = ExtResource("2_awi1s")
 theme_override_font_sizes/font_size = 32
-text = "REPLAY"
+text = "MAIN MENU"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_85imr")
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

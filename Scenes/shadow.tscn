@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://r01f1wrgnauk" path="res://Scenes/Components/HealthComponent.tscn" id="1_7lfe7"]
 [ext_resource type="Script" uid="uid://coq8d5tcwbsha" path="res://Scripts/Shadow/ShadowHitbox.gd" id="1_pt8rj"]
-[ext_resource type="Script" uid="uid://c4d5wt47djxml" path="res://Scripts/Shadow.gd" id="1_s1j64"]
+[ext_resource type="Script" uid="uid://c4d5wt47djxml" path="res://Scripts/shadow.gd" id="1_s1j64"]
 [ext_resource type="Script" uid="uid://cjson8dx74ue8" path="res://Scripts/Components/StateMachine.gd" id="1_wjdoq"]
 [ext_resource type="PackedScene" uid="uid://4j24cfujirgk" path="res://Scenes/Components/HurtboxComponent.tscn" id="2_pt8rj"]
 [ext_resource type="Script" uid="uid://dqp2wtkte5hth" path="res://Scripts/Shadow/States/ShadowHit.gd" id="3_xxmrs"]

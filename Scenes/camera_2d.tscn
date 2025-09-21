@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0wamciy0efu"]
+[gd_scene load_steps=6 format=3 uid="uid://b0wamciy0efu"]
 
 [ext_resource type="Script" uid="uid://cha0dey3px8f1" path="res://Scripts/CameraController.gd" id="1_7gs4n"]
 [ext_resource type="Texture2D" uid="uid://ebnov8rdkl3i" path="res://Assets/Art/Sprite-0001.png" id="2_hrk3d"]
 [ext_resource type="Script" uid="uid://dw6mcecg27wtv" path="res://Scripts/Arrows/DirectionArrowYarn.gd" id="3_jew8w"]
 [ext_resource type="Script" uid="uid://dxkwm0vmbd0rt" path="res://Scripts/Arrows/DirectionArrowFire.gd" id="4_n4vac"]
+[ext_resource type="AudioStream" uid="uid://er125g82xrvh" path="res://Assets/Audio/marrrimba.mp3" id="5_hrk3d"]
 
 [node name="Camera2D" type="Camera2D"]
 script = ExtResource("1_7gs4n")
@@ -22,3 +23,9 @@ texture = ExtResource("2_hrk3d")
 script = ExtResource("4_n4vac")
 arrow = NodePath(".")
 arrow_sprite = NodePath(".")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_hrk3d")
+volume_db = -8.0
+autoplay = true
+parameters/looping = true

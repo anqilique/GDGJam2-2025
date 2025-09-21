@@ -251,7 +251,7 @@ shape = SubResource("CircleShape2D_p3ir5")
 [node name="Drawer" type="Area2D" parent="SearchSpotContainer/TopLeft" groups=["SearchSpots"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SearchSpotContainer/TopLeft/Drawer"]
-position = Vector2(-88, -176)
+position = Vector2(-95, -180)
 shape = SubResource("CapsuleShape2D_myvm1")
 
 [node name="TopRight" type="Node" parent="SearchSpotContainer"]
