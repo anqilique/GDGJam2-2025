@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bdtv1ln0t1j8i" path="res://Scenes/door.tscn" id="1_ci6au"]
 [ext_resource type="Texture2D" uid="uid://ci24sbmfj03u7" path="res://Assets/Art/house.png" id="2_26yhd"]
-[ext_resource type="Texture2D" uid="uid://b8t616ns614os" path="res://Assets/Art/furniture.png" id="3_p3ir5"]
+[ext_resource type="Texture2D" uid="uid://cetenffxscnde" path="res://Assets/Art/furniture.webp" id="3_myvm1"]
 [ext_resource type="Script" uid="uid://ckelbmrq10wd0" path="res://Scripts/SearchSpots.gd" id="4_myvm1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p3ir5"]
@@ -183,35 +183,35 @@ texture = ExtResource("2_26yhd")
 [node name="TopFurniture" type="Sprite2D" parent="SpriteContainer"]
 z_index = -1
 position = Vector2(28, -143)
-texture = ExtResource("3_p3ir5")
+texture = ExtResource("3_myvm1")
 region_enabled = true
 region_rect = Rect2(0, 52.39003, 819, 382.36017)
 
 [node name="BtmRFurniture" type="Sprite2D" parent="SpriteContainer"]
 z_index = -1
 position = Vector2(207, 164)
-texture = ExtResource("3_p3ir5")
+texture = ExtResource("3_myvm1")
 region_enabled = true
 region_rect = Rect2(460, 429, 285, 275)
 
 [node name="BtmMFurniture" type="Sprite2D" parent="SpriteContainer"]
 z_index = -1
 position = Vector2(-39.5, 99)
-texture = ExtResource("3_p3ir5")
+texture = ExtResource("3_myvm1")
 region_enabled = true
 region_rect = Rect2(104, 438, 83, 96)
 
 [node name="BtmMFurniture2" type="Sprite2D" parent="SpriteContainer"]
 z_index = -1
 position = Vector2(50.5, 97)
-texture = ExtResource("3_p3ir5")
+texture = ExtResource("3_myvm1")
 region_enabled = true
 region_rect = Rect2(297, 439, 97, 91)
 
 [node name="BtmLFurniture1" type="Sprite2D" parent="SpriteContainer"]
 z_index = -1
 position = Vector2(-130, 217)
-texture = ExtResource("3_p3ir5")
+texture = ExtResource("3_myvm1")
 region_enabled = true
 region_rect = Rect2(93, 538, 308, 163)
 
@@ -232,6 +232,7 @@ region_enabled = true
 region_rect = Rect2(35, 102, 35, 346)
 
 [node name="DarknessNode" type="DirectionalLight2D" parent="."]
+visible = false
 color = Color(0.07058824, 0, 0, 0.84705883)
 blend_mode = 2
 range_z_max = 3
