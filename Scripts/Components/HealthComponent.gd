@@ -40,7 +40,6 @@ func die():
 
 func take_damage(damage: int):
 	if current_health <= 0:
-		print("already dead")
 		return
 
 	current_health -= damage

@@ -11,7 +11,6 @@ var attack_timer
 
 func enter():
 	var yarn_cat_health = get_tree().get_first_node_in_group("YarnCat").get_node("HealthComponent")
-	print("ycat taking ", damage, " damage")
 	yarn_cat_health.take_damage(damage)
 
 	# mock timer in placeholder of animations

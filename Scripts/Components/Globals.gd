@@ -29,7 +29,6 @@ var key_found
 
 func reset_variables():
 	key_location = search_spots.pick_random()
-	print(key_location)
 	key_found = false
 	
 	torch_holder = "YarnCat"  # For determining who is holding the torch.
