@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cdvytg7osk3eu"]
+[gd_scene load_steps=11 format=3 uid="uid://cdvytg7osk3eu"]
 
 [ext_resource type="Script" uid="uid://c18nfyf1mkn7g" path="res://Scripts/LossScreen.gd" id="1_0dmjc"]
 [ext_resource type="Theme" uid="uid://dljqrqoj41xf7" path="res://Assets/Resources/theme.tres" id="2_jhgxs"]
 [ext_resource type="Texture2D" uid="uid://cr0ppyxnjvg6j" path="res://Assets/Art/fcat.png" id="2_k2ia7"]
 [ext_resource type="Texture2D" uid="uid://o01u6vh45tfx" path="res://Assets/Art/ycat.png" id="3_dbwqd"]
-[ext_resource type="AudioStream" uid="uid://cec6bpka7kcxe" path="res://Assets/Audio/deathsound.mp3" id="5_dbwqd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jqa16"]
 atlas = ExtResource("2_k2ia7")
@@ -107,10 +106,6 @@ offset_bottom = 501.0
 theme = ExtResource("2_jhgxs")
 theme_override_font_sizes/font_size = 32
 text = "REPLAY"
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_dbwqd")
-autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]

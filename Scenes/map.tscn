@@ -111,7 +111,6 @@ scale = Vector2(0.256179, 0.40152162)
 position = Vector2(8.674133, 17.5)
 
 [node name="CollisionShapes" type="StaticBody2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShapes"]
 position = Vector2(-336, -116)
@@ -232,7 +231,6 @@ region_enabled = true
 region_rect = Rect2(35, 102, 35, 346)
 
 [node name="DarknessNode" type="DirectionalLight2D" parent="."]
-visible = false
 color = Color(0.07058824, 0, 0, 0.84705883)
 blend_mode = 2
 range_z_max = 3

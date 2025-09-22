@@ -4,6 +4,8 @@ extends Control
 
 
 func _ready() -> void:
+	AudioHandler.play_sound("LoseSound")
+	
 	match Globals.loss_reason:
 		"YCatBurned":
 			reason_label.text = "Flame Cat burnt Yarn Cat alive! 😱\nHow could you...?"

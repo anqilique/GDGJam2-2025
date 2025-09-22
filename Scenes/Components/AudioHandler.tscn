@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://beg67yuk5jrsa"]
+
+[ext_resource type="Script" uid="uid://b1hkdvew4ckm4" path="res://Scripts/Components/AudioHandler.gd" id="1_pp4rw"]
+[ext_resource type="AudioStream" uid="uid://coqb85xbhhgyn" path="res://Assets/Audio/cats.mp3" id="2_wmo4u"]
+[ext_resource type="AudioStream" uid="uid://er125g82xrvh" path="res://Assets/Audio/marrrimba.mp3" id="3_nob8x"]
+[ext_resource type="AudioStream" uid="uid://ciulbf0nlypic" path="res://Assets/Audio/cathapp.mp3" id="4_a2qwj"]
+[ext_resource type="AudioStream" uid="uid://gu4nmw1ca3w1" path="res://Assets/Audio/win.mp3" id="5_kcr18"]
+[ext_resource type="AudioStream" uid="uid://cec6bpka7kcxe" path="res://Assets/Audio/deathsound.mp3" id="6_l8357"]
+
+[node name="AudioHandler" type="Node"]
+script = ExtResource("1_pp4rw")
+
+[node name="MainMenuTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_wmo4u")
+
+[node name="ControlMenuTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nob8x")
+
+[node name="GamePlayTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_a2qwj")
+volume_db = -5.0
+
+[node name="WinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_kcr18")
+
+[node name="LoseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_l8357")
+
+[connection signal="finished" from="WinSound" to="." method="_on_win_sound_finished"]
+[connection signal="finished" from="LoseSound" to="." method="_on_lose_sound_finished"]

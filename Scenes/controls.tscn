@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://depai0jvlppp0"]
 
 [ext_resource type="Theme" uid="uid://dljqrqoj41xf7" path="res://Assets/Resources/theme.tres" id="1_8qavf"]
-[ext_resource type="Script" path="res://Scripts/Controls.gd" id="1_e8c2f"]
+[ext_resource type="Script" uid="uid://dohiqntx1mdel" path="res://Scripts/Controls.gd" id="1_e8c2f"]
 [ext_resource type="Texture2D" uid="uid://cr0ppyxnjvg6j" path="res://Assets/Art/fcat.png" id="2_m0n3a"]
 [ext_resource type="Texture2D" uid="uid://o01u6vh45tfx" path="res://Assets/Art/ycat.png" id="4_q6vtx"]
 
@@ -57,6 +57,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e8c2f")
+metadata/_edit_group_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
