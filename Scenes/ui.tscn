@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://kmmcioaaast4"]
+[gd_scene load_steps=15 format=3 uid="uid://kmmcioaaast4"]
 
 [ext_resource type="Theme" uid="uid://dljqrqoj41xf7" path="res://Assets/Resources/theme.tres" id="1_jxero"]
 [ext_resource type="Script" uid="uid://cj0dd6gveslkt" path="res://Scripts/UI.gd" id="1_qdvrb"]
+[ext_resource type="Texture2D" uid="uid://cr0ppyxnjvg6j" path="res://Assets/Art/fcat.png" id="3_2246s"]
+[ext_resource type="Texture2D" uid="uid://o01u6vh45tfx" path="res://Assets/Art/ycat.png" id="4_q7pk6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdvrb"]
 bg_color = Color(0.952941, 0.254902, 0.286275, 1)
@@ -27,7 +29,52 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqa16"]
+atlas = ExtResource("3_2246s")
+region = Rect2(0, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyi46"]
+atlas = ExtResource("3_2246s")
+region = Rect2(46, 0, 46, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m78vo"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_jqa16")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_jyi46")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irndq"]
+atlas = ExtResource("4_q7pk6")
+region = Rect2(0, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8exc"]
+atlas = ExtResource("4_q7pk6")
+region = Rect2(46, 0, 46, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_smcll"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_irndq")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_p8exc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="UI" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_qdvrb")
 
 [node name="HealthBars" type="Control" parent="."]
@@ -115,3 +162,181 @@ offset_right = 512.0
 offset_bottom = 55.0
 text = "Remaining Torch Fire --- [SPACE] to Pass the Torch"
 horizontal_alignment = 1
+
+[node name="PauseLabel" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.76862746)
+offset_left = 424.0
+offset_top = 72.0
+offset_right = 716.0
+offset_bottom = 95.0
+text = "[P] to Pause the Game & See Controls!"
+horizontal_alignment = 1
+
+[node name="PauseOverlay" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 5
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="PauseOverlay"]
+anchors_preset = -1
+anchor_right = 28.893002
+anchor_bottom = 16.289001
+offset_right = -32132.738
+offset_bottom = -9907.273
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7882353)
+
+[node name="Title" type="Label" parent="PauseOverlay"]
+offset_left = 256.0
+offset_top = 25.0
+offset_right = 896.0
+offset_bottom = 113.0
+theme_override_font_sizes/font_size = 48
+text = "Game Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle" type="Label" parent="PauseOverlay"]
+offset_left = 517.0
+offset_top = 82.0
+offset_right = 642.0
+offset_bottom = 133.0
+text = "Controls Re-Cap"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FlameCat" type="Control" parent="PauseOverlay"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2.0
+offset_top = 24.0
+offset_right = 398.0
+offset_bottom = 671.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PauseOverlay/FlameCat"]
+y_sort_enabled = true
+position = Vector2(190, 151)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_m78vo")
+
+[node name="Header" type="Label" parent="PauseOverlay/FlameCat"]
+modulate = Color(0.9529412, 0.25490198, 0.28627452, 1)
+layout_mode = 0
+offset_left = 76.0
+offset_top = 212.0
+offset_right = 306.0
+offset_bottom = 246.0
+theme_override_font_sizes/font_size = 24
+text = "Flame Cat"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="PauseOverlay/FlameCat"]
+modulate = Color(0.9529412, 0.25490198, 0.28627452, 1)
+layout_mode = 0
+offset_left = 56.0
+offset_top = 259.0
+offset_right = 344.0
+offset_bottom = 553.0
+text = "Movement: WASD Keys
+Health: Fire! Decreases over time!
+
+Regain health by holding the Torch.
+
+Role: Protect Yarn Cat from Shadows!
+- Touching them will destroy them...
+- But at the cost of 1 Health.
+
+Manage health carefully, as it is
+very easy for Flame Cat to lose it!"
+
+[node name="YarnCat" type="Control" parent="PauseOverlay"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 700.0
+offset_top = 24.0
+offset_right = 1096.0
+offset_bottom = 671.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PauseOverlay/YarnCat"]
+y_sort_enabled = true
+position = Vector2(215, 151)
+scale = Vector2(-4, 4)
+sprite_frames = SubResource("SpriteFrames_smcll")
+
+[node name="Header" type="Label" parent="PauseOverlay/YarnCat"]
+modulate = Color(0.30980393, 0.5254902, 0.9764706, 1)
+layout_mode = 0
+offset_left = 101.0
+offset_top = 212.0
+offset_right = 331.0
+offset_bottom = 246.0
+theme_override_font_sizes/font_size = 24
+text = "Yarn Cat"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="PauseOverlay/YarnCat"]
+modulate = Color(0.30980393, 0.5254902, 0.9764706, 1)
+layout_mode = 0
+offset_left = 81.0
+offset_top = 259.0
+offset_right = 394.0
+offset_bottom = 553.0
+text = "Movement: Arrow Keys
+Health: Decreases when hit by Shadows!
+
+[SHIFT] to use Yarn Cat's Search ability.
+
+Role: Search for the Key to the Exit Door!
+- When the Key isn't in a spot, Yarn Cat
+might find some kindling for the Torch!
+
+Yarn Cat needs the Torch to Search,
+and to keep the Shadows away!"
+horizontal_alignment = 2
+
+[node name="Button" type="Button" parent="PauseOverlay"]
+offset_left = 416.0
+offset_top = 568.0
+offset_right = 736.0
+offset_bottom = 631.0
+theme = ExtResource("1_jxero")
+theme_override_font_sizes/font_size = 40
+text = "QUIT TO MENU"
+
+[node name="Header" type="Label" parent="PauseOverlay"]
+modulate = Color(0.9529412, 0.7411765, 0.28627452, 1)
+offset_left = 256.0
+offset_top = 120.0
+offset_right = 896.0
+offset_bottom = 208.0
+theme_override_font_sizes/font_size = 24
+text = "Escape the House!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Content" type="Label" parent="PauseOverlay"]
+modulate = Color(0.9529412, 0.7411765, 0.28627452, 1)
+offset_left = 256.0
+offset_top = 197.0
+offset_right = 896.0
+offset_bottom = 584.0
+text = "Shadows will try to stop you. 
+You need to find the Key to unlock the Door.
+
+But don't get too close to each other,
+or Yarn Cat will burn!
+
+Pass the Torch to...
+- Keep Flame Cat alive
+- Keep Shadows away from Yarn Cat
+- Let Yarn Cat search around the House
+
+You can search places multiple times.
+
+[P] to un-pause! =^owo^=
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="PauseOverlay/Button" to="." method="_on_button_pressed"]

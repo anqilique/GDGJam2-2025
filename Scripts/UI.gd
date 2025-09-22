@@ -4,6 +4,7 @@ extends CanvasLayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$HealthBars/YCatHealth/Label2.text = "Find Key!"
+	$PauseOverlay.hide()
 
 
 func check_health_bars():
@@ -45,3 +46,21 @@ func _process(delta: float) -> void:
 	
 	if Globals.key_found and $HealthBars/YCatHealth/Label2.text != "Key Found!":
 		$HealthBars/YCatHealth/Label2.text = "Key Found! Find Door!"
+	
+	if Input.is_action_just_pressed("ui_pause"):
+		Globals.paused = !Globals.paused
+	
+	if Globals.paused != get_tree().paused:
+		get_tree().paused = Globals.paused
+		
+		if Globals.paused:
+			$PauseOverlay.show()
+		else:
+			$PauseOverlay.hide()
+
+
+func _on_button_pressed() -> void:
+	Globals.paused = false
+	get_tree().paused = false
+	
+	get_tree().change_scene_to_file("res://Scenes/start_menu.tscn")

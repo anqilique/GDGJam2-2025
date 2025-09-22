@@ -26,6 +26,8 @@ var search_spots = [
 var key_location
 var key_found
 
+var paused = false
+
 
 func reset_variables():
 	key_location = search_spots.pick_random()

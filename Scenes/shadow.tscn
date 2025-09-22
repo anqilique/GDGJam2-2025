@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://r01f1wrgnauk" path="res://Scenes/Components/HealthComponent.tscn" id="1_7lfe7"]
 [ext_resource type="Script" uid="uid://coq8d5tcwbsha" path="res://Scripts/Shadow/ShadowHitbox.gd" id="1_pt8rj"]
-[ext_resource type="Script" uid="uid://c4d5wt47djxml" path="res://Scripts/shadow.gd" id="1_s1j64"]
+[ext_resource type="Script" uid="uid://c4d5wt47djxml" path="res://Scripts/Shadow.gd" id="1_s1j64"]
 [ext_resource type="Script" uid="uid://cjson8dx74ue8" path="res://Scripts/Components/StateMachine.gd" id="1_wjdoq"]
 [ext_resource type="PackedScene" uid="uid://4j24cfujirgk" path="res://Scenes/Components/HurtboxComponent.tscn" id="2_pt8rj"]
 [ext_resource type="Script" uid="uid://dqp2wtkte5hth" path="res://Scripts/Shadow/States/ShadowHit.gd" id="3_xxmrs"]
@@ -33,7 +33,6 @@ offsets = PackedFloat32Array(0, 0.39726028, 0.8150685, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0.28604844, 0.000872418, 0.4852584, 1, 0.24936762, 0.011783855, 0, 1, 0.14926839, 1.8602535e-05, 0.15282303, 0.8901961)
 
 [node name="Shadow" type="CharacterBody2D" groups=["Shadow"]]
-process_mode = 3
 script = ExtResource("1_s1j64")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

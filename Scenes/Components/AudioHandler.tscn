@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cec6bpka7kcxe" path="res://Assets/Audio/deathsound.mp3" id="6_l8357"]
 
 [node name="AudioHandler" type="Node"]
+process_mode = 3
 script = ExtResource("1_pp4rw")
 
 [node name="MainMenuTheme" type="AudioStreamPlayer" parent="."]

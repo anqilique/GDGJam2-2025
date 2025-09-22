@@ -60,7 +60,6 @@ fill_from = Vector2(0.502616, 0.506271)
 fill_to = Vector2(0.21028037, 0.74766356)
 
 [node name="FireCat" type="CharacterBody2D" node_paths=PackedStringArray("health_component") groups=["FireCat"]]
-process_mode = 3
 script = ExtResource("1_l7j73")
 health_component = NodePath("HealthComponent")
 

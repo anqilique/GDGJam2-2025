@@ -51,7 +51,6 @@ radius = 9.0
 height = 28.0
 
 [node name="YarnCat" type="CharacterBody2D" node_paths=PackedStringArray("pass_area", "pass_area_sprite") groups=["YarnCat"]]
-process_mode = 3
 script = ExtResource("1_h6rup")
 yarn_piece = ExtResource("2_p0tp3")
 pass_area = NodePath("PassArea2D")
