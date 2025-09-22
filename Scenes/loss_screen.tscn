@@ -72,7 +72,7 @@ offset_top = 72.0
 offset_right = 1001.0
 offset_bottom = 209.0
 theme_override_font_sizes/font_size = 100
-text = "Escape Failed! 😭"
+text = "Escape Failed!"
 horizontal_alignment = 1
 
 [node name="LoseReason" type="Label" parent="CanvasLayer/ColorRect"]
