@@ -87,25 +87,25 @@ horizontal_alignment = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect"]
 y_sort_enabled = true
-position = Vector2(419, 446)
+position = Vector2(394, 446)
 scale = Vector2(4, -4)
 sprite_frames = SubResource("SpriteFrames_w0bu5")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect"]
 y_sort_enabled = true
-position = Vector2(732, 445)
+position = Vector2(757, 445)
 rotation = 3.1415927
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_fhl4r")
 
 [node name="Button" type="Button" parent="CanvasLayer"]
-offset_left = 512.0
+offset_left = 502.0
 offset_top = 448.0
-offset_right = 643.0
+offset_right = 650.0
 offset_bottom = 501.0
 theme = ExtResource("2_jhgxs")
 theme_override_font_sizes/font_size = 32
-text = "REPLAY"
+text = "MENU"
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]
